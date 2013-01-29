@@ -11,17 +11,17 @@
       </ul>
     </div>
   <% end %>
-    <h3>Employment Record for Employee
-      <%= Employee.find(params[:employee]).name %>
-      [ <%= Employee.find(params[:employee]).pancard %> ]
-      with [<%= current_user.employer.name %>] </h3>
+    <!--h4>Employment Record for Employee -->
+      <!--%= Employee.find(params[:employee]).name %-->
+      <!--%= Employee.find(params[:employee]).pancard % -->
+      <!-- with Employer --><!--%= current_user.employer.name %> </h4 -->
   <%= f.inputs do %>
         <!--%= f.input :employee, :collection => Employee.all.map{ |employee| [employee.name, employee.pancard] }%-->
         <!--%= f.input :employee_id , :as => :hidden , :value => params[:employee] %-->
-        <%= f.input :employee %>
-        <!--%= f.input :employee , :as => :hidden , :value => Employee.find(params[:employee]).id %-->
-        <!--%= f.input :employer , :as => :hidden , :value => current_user.employer.id %-->
-        <%= f.input :employer %>
+        <!--%= f.input :employee %-->
+        <%= f.input :employee_id %>
+        <%= f.input :employer_id %>
+        <!--%= f.input :employer %-->
         <%= f.input :employee_code %>
         <%= f.input :date_of_joining , :as => :date_picker%>
         <%= f.input :resignation_date, :as => :date_picker %>

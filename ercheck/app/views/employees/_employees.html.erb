@@ -5,7 +5,7 @@
 <table cellspacing="0" cellpadding="0" border="0" paginator="true" class="index_table index" id="employees">
   <thead>
   <tr>
-    <th class="sorted-desc id"><a href="/admin/employees?order=id_asc">Id</a></th>
+    <!--th class="sorted-desc id"><a href="/admin/employees?order=id_asc">Id</a></th-->
     <th class="name"><a href="/admin/employees?order=name_desc">Name</a></th>
     <th class="pan"><a href="/admin/employees?order=pancard_desc">PAN</a></th>
     <th class="date_of_birth"><a href="/admin/employees?order=date_of_birth_desc">Date of Birth</a></th>
@@ -32,8 +32,14 @@
         <td class="employements"><%=  employee.employements && employee.employements.size %></td>
         <td class="data_actions">
           <a href="/admin/employees/<%= employee.id %>" class="member_link view_link">View</a>
-          <a href="/admin/employees/<%= employee.id %>/edit" class="member_link edit_link">Edit</a>
-          <a href="/admin/employees/<%= employee.id %>" class="member_link delete_link" data-confirm="Are you sure you want to delete this?" data-method="delete" rel="nofollow">Delete</a>
+
+          <% if employee.status.nil? || employee.status.name == "New" %>
+            <a href="/admin/employees/<%= employee.id %>/edit" class="member_link edit_link">Edit</a>
+          <% end %>
+
+          <!--a href="/admin/employees/< employee.id %>
+          " class="member_link delete_link" data-confirm="Are you sure you want to delete this?"
+             data-method="delete" rel="nofollow">Delete</a -->
         </td>
         <td class="status"><%= employee.status && employee.status.name %></td>
         <td class="business_actions">
@@ -43,7 +49,7 @@
           <% if current_user.role.name == "manager" && (employee.status != nil && employee.status.name == "Submitted") %>
                   <a href="/admin/employees/<%= employee.id %>/approve" class="member_link publish_link">Approve</a>
           <% end %>
-          <% if current_user.role.name == "manager" && (employee.status != nil && employee.status.name == "Approved") %>
+          <% if current_user.role.name == "admin" && (employee.status != nil && employee.status.name == "Approved") %>
                <a href="/admin/employees/<%= employee.id %>/publish" class="member_link publish_link">Publish</a>
           <% end %>
         </td>

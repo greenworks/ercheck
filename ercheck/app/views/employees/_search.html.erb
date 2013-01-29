@@ -1,9 +1,24 @@
-<div class="panel_contents">
-  <form method="get" id="q_search" class="filter_form" action="/admin/my_employees" accept-charset="UTF-8">
-    <div class="filter_form_field filter_string">
-      <label for="q_email" class=" label">Search Employee by PAN :</label>
-      <input type="text" name="q[pancard_contains]" id="q_pancard" />
-      <input type="submit" value="Search" name="commit" id="q_submit" />
+<div class="section">
+  <h3>Search Employee by PAN</h3>
+    <div class="section_contents">
+      <form method="get" id="search_by_pan" class="filter_form" action="/admin/search_employee" accept-charset="UTF-8">
+        <div class="filter_form_field filter_string">
+          <label for="search" class=" label">PAN : </label>   <input type="text" name="pancard" id="pancard" />     <br/>
+          <!--label for="search" class=" label">Date Of Birth : </label>   <input type="text" name="date_of_birth" id="date_of_birth" />     <br/-->
+          <input type="submit" value="Search" name="commit" id="q_submit" />
+        </div>
+      </form>
     </div>
-  </form>
+</div>
+<div class="section">
+  <h3>Search Employee by Mark sheet</h3>
+    <div class="section_contents">
+      <form method="get" id="search_by_marksheet" class="filter_form" action="/admin/search_employee" accept-charset="UTF-8">
+        <div class="search_form_field search_string">
+          <label for="search" class="th">SSC  Mark sheet :</label> <input type="text" name="marksheet" id="marksheet" /> <br/>
+          <!--label for="search" class=" label">Date Of Birth : </label>   <input type="text" name="date_of_birth" id="date_of_birth" />     <br/-->
+          <input type="submit" value="Search" name="commit" id="q_submit_marksheet" />
+        </div>
+      </form>
+    </div>
 </div>

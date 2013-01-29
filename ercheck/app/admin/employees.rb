@@ -1,7 +1,7 @@
 ActiveAdmin.register Employee do
   config.clear_action_items!
 
-  menu :parent => "Search"
+  menu :parent => "Masters", :if => proc{ current_user.role.name=="admin" }
 
   #scope_to :current_user , :association_method => :creator
 
@@ -10,6 +10,7 @@ ActiveAdmin.register Employee do
   filter :date_of_birth
   filter :university_id
   filter :ssc_marksheet_code
+  filter :board
 
   member_action :publish do
     @employee = Employee.find(params[:id])
@@ -45,21 +46,54 @@ ActiveAdmin.register Employee do
   end
 
   action_item :only => :show do
-    link_to 'Edit Employee', [:edit, :admin, employee]
+    @employee = Employee.find(employee)
+    if @employee.status.name == "New"
+      link_to 'Edit Employee', [:edit, :admin, employee]
+    else
+      link_to 'View Employments', "admin_my_employees_path" #admin_seatch_employment
+    end
   end
 
+#delete option not needed at all in system
+=begin
   action_item :only => :show do
     link_to 'Delete Employee', employee, :confirm => 'Are you sure?', :method => :delete
   end
+=end
 
   action_item :only => :show do
     link_to 'Add Employee',new_admin_employee_path
   end
 
   action_item :only => :show do
+    #admin/employements/new?employee=32
+    #link_to 'Create Employment Record', "/admin/employements/new?employee=32"
     link_to 'Create Employment Record', new_admin_employement_path(:employee => employee)
     #link_to('employements',"/employements/new?id=" & employee.id )
   end
+
+=begin
+  controller do
+    def search_employee
+      @employee = Employee.search_by_pancard(params[:pancard],params[:marksheet])
+
+      respond_to do |format|
+        format.html # search_employee.html.erb
+        format.json { render json: @employee }
+      end
+
+    end
+  end
+=end
+
+=begin
+  action_item :only => :show do
+    #admin/employements/new?employee=32
+    #link_to 'Create Employment Record 2', new_admin_employement_path, :employee_id => employee_id
+    #link_to('employements',"/employements/new?id=" & employee.id )
+  end
+=end
+
 
   index do
     selectable_column
@@ -127,6 +161,9 @@ ActiveAdmin.register Employee do
         employee.board && employee.board.name
       end
       row :ssc_marksheet_code
+      row "Board" do |employee|
+        employee.board && employee.board.name
+      end
       row :highest_qualification
       row :highest_qualification_passing_year
       row "University" do |employee|
@@ -155,12 +192,12 @@ ActiveAdmin.register Employee do
       row "Employments" do |employee|
         render "/employements/employement", :employements=> employee.employements
       end
+      row "Status" do |employee|
+        employee.status && employee.status.name
+      end
 
-      row :status_id
       row :is_published
-
     end
-    active_admin_comments
   end
 
   form :partial => "/employees/form"

@@ -1,6 +1,6 @@
 ActiveAdmin.register Employement do
 
-  menu :parent => "Search"
+  menu :parent => "Settings", :if => proc{ current_user.role.name=="admin" }
 
   filter :employee, :as => :select, :collection => proc { Employee.all }
   filter :employer
@@ -62,35 +62,15 @@ ActiveAdmin.register Employement do
   controller do
     def new
       @employement = Employement.new
-      @employee = Employee.find(1)
+
+      @employee = Employee.find(params[:employee])
+      @employer = current_user.employer
+      @employement.employee_id=@employee.id
+      @employement.employer_id=@employer.id
     end
   end
 
   form :partial => "/employements/form"
 
-=begin
-  form do |f|
-    f.inputs "Details" do
-      f.input :employee
-      f.input :employer
-      f.input :date_of_joining ,:as => :datepicker
-      f.input :date_of_leaving ,:as => :datepicker
-      f.input :exit_comments
-      f.input :rating
-    end
-
-    if current_user.role.name == "admin"
-      f.inputs "Extra Details" do
-        f.input :status_id
-        f.input :is_published
-        f.input :creator
-        f.input :approver
-      end
-    end
-
-
-    f.buttons
-  end
-=end
 
 end

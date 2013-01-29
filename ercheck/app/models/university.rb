@@ -9,6 +9,7 @@ class University < ActiveRecord::Base
   attr_accessible :address, :name
 
 
+=begin
   def self.fetchcsv(input_csv) #'C:\\DATA\\univ.csv'
     include CsvMapper
 
@@ -23,4 +24,5 @@ class University < ActiveRecord::Base
 
     end
   end
+=end
 end

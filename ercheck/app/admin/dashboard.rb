@@ -3,16 +3,10 @@ ActiveAdmin.register_page "Dashboard" do
   menu :priority => 1, :label => proc{ I18n.t("active_admin.dashboard") }
 
 
-  content :title => proc{ (current_user.role.name) + "  " + I18n.t("active_admin.dashboard")   } do
+  content :title => proc{   I18n.t("active_admin.dashboard")  + " for " + (current_user.role.name).capitalize  } do
 
-    h3 {current_user.role.name}
-    #h3 current_user.role.name? "admin"
 
-      panel "Search Employee" do
-      div do
-        render "employees/search"
-      end
-    end
+   render "employees/search"
 
     br
     panel "Recently Created Employees records"  do
@@ -26,16 +20,21 @@ ActiveAdmin.register_page "Dashboard" do
           employee.employements.size
         end
 
+        column "Board", :board
+
+        column "Marksheet", :ssc_marksheet_code
+
         column "Record Status" do |employee|
           employee.status && employee.status.name
         end
 
       end
-      strong { link_to "View All Employees", admin_my_employees_path }
+      strong { link_to "View All Employees created by you", admin_my_employees_path }
     end
 
     br
 
+=begin
     panel "Recently Created Employments records"  do
       table_for Employement.order("created_at desc").where(:created_by => current_user).limit(5) do
 
@@ -55,7 +54,9 @@ ActiveAdmin.register_page "Dashboard" do
       end
       strong { link_to "View All Employments", admin_my_employments_path }
     end
-  end
+=end
+
+end
 
 =begin
     div :class => "blank_slate_container", :id => "dashboard_default_message" do

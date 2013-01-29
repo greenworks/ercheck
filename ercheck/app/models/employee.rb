@@ -7,15 +7,16 @@ class Employee < ActiveRecord::Base
     has_many :employers, :through => :employements
 
     belongs_to :university
-    belongs_to :status
     belongs_to :board
+    belongs_to :status
 
     belongs_to :approver, :class_name => "User",   :foreign_key => "approved_by"
     belongs_to :creator,  :class_name => "User",   :foreign_key => "created_by"
 
-    attr_accessible  :employement_attributes, :employement_id, :date_of_birth, :name, :pancard,  :university_id ,:status_id, :created_by, :approved_by, \
-    :is_published, :ssc_marksheet_code,:surname, :mother_name, :father_name, :string, :metric_passing_year, \
-    :board_id, :highest_qualification, :highest_qualification_passing_year, :mobile, :res_landline
+    attr_accessible  :employement_attributes, :employement_id, :date_of_birth, :name, :pancard, \
+    :university_id, :board_id ,:status_id, :created_by, :approved_by, :is_published, :ssc_marksheet_code, \
+    :surname, :mother_name, :father_name, :string, :metric_passing_year, \
+    :highest_qualification, :highest_qualification_passing_year, :mobile, :res_landline
 
     validates_presence_of  :date_of_birth, :name, :pancard,  :university_id ,:ssc_marksheet_code, \
     :metric_passing_year, :Board_id
@@ -60,6 +61,20 @@ class Employee < ActiveRecord::Base
         where('created_by =?', "#{creator}")
       else
         scoped
+      end
+    end
+
+    def self.search_by_pancard(pancard)
+      if pancard
+        where('pancard =?', "#{pancard}")
+        #where('pancard =? or date_of_birth=?', "#{pancard}", "#{date_of_birth}")
+      end
+    end
+
+    def self.search_by_marksheet(marksheet)
+      if marksheet
+        where('ssc_marksheet_code =?', "#{marksheet}")
+        #where('ssc_marksheet_code =?', "#{marksheet}", "#{date_of_birth}")
       end
     end
 
