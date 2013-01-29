@@ -1,0 +1,50 @@
+<div class="art-header">
+  <div class="art-header-clip">
+    <div class="art-header-center">
+      <div class="art-header-jpeg"></div>
+    </div>
+  </div>
+  <div class="art-header-wrapper">
+    <div class="art-header-inner">
+      <div class="art-headerobject"></div>
+      <div class="art-logo">
+      </div>
+
+       <div id="user_nav" class="user_nav">
+        <% if user_signed_in? %>
+            Signed in as <%= current_user.email %>. Not you?
+            <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+            <br/><br/><a href="/admin">My Account</a>
+        <% else %>
+            <%= link_to "Register", new_user_registration_path %> | <%= link_to "Sign in", new_user_session_path %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="cleared reset-box"></div>
+<div class="art-nav">
+  <div class="art-nav-l"></div>
+  <div class="art-nav-r"></div>
+  <div class="art-nav-outer">
+    <div class="art-nav-wrapper">
+      <div class="art-nav-inner">
+        <ul class="art-hmenu">
+          <li id="current" class="active item1"><a href="/" class=" active"><span class="l"></span><span class="r"></span><span class="t">Home</span></a></li>
+          <!--li class="art-hmenu-li-separator"><span class="art-hmenu-separator"> </span></li>
+          <li class="item5"><a href="/info/search"><span class="l"></span><span class="r"></span><span class="t">Search Records</span></a></li>
+          <li class="art-hmenu-li-separator"><span class="art-hmenu-separator"> </span></li>
+          <li class="item4"><a href="/employees/new"><span class="l"></span><span class="r"></span><span class="t">Report Employee</span></a></li-->
+          <li class="art-hmenu-li-separator"><span class="art-hmenu-separator"> </span></li>
+          <li class="item17"><a href="/enquiries/new"><span class="l"></span><span class="r"></span><span class="t">Enquiry</span></a></li>
+          <!--li class="art-hmenu-li-separator"><span class="art-hmenu-separator"> </span></li>
+          <li class="item6"><a href="/info/faq"><span class="l"></span><span class="r"></span><span class="t">FAQs</span></a></li-->
+          <li class="art-hmenu-li-separator"><span class="art-hmenu-separator"> </span></li>
+          <li class="item7"><a href="/info/contact"><span class="l"></span><span class="r"></span><span class="t">Contact Us</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="cleared reset-box"></div>

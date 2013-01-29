@@ -1,0 +1,76 @@
+<%= semantic_form_for  [:admin, @employement] do |f|
+
+%>
+  <% if @employement.errors.any? %>
+    <div id="error_explanation">
+      <h2>This employment record can not be created due to <%= pluralize(@employement.errors.count, "error") %> from input:</h2>
+      <ul>
+      <% @employement.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <h3>Employment Record for Employee
+      <%= Employee.find(params[:employee]).name %>
+      [ <%= Employee.find(params[:employee]).pancard %> ]
+      with [<%= current_user.employer.name %>] </h3>
+  <%= f.inputs do %>
+        <!--%= f.input :employee, :collection => Employee.all.map{ |employee| [employee.name, employee.pancard] }%-->
+        <!--%= f.input :employee_id , :as => :hidden , :value => params[:employee] %-->
+        <%= f.input :employee %>
+        <!--%= f.input :employee , :as => :hidden , :value => Employee.find(params[:employee]).id %-->
+        <!--%= f.input :employer , :as => :hidden , :value => current_user.employer.id %-->
+        <%= f.input :employer %>
+        <%= f.input :employee_code %>
+        <%= f.input :date_of_joining , :as => :date_picker%>
+        <%= f.input :resignation_date, :as => :date_picker %>
+        <%= f.input :date_of_leaving , :as => :date_picker%>
+        <%= f.input :exit_comments  ,:label => "Exit Comments" %>
+        <%= f.input :designation %>
+        <%= f.input :department %>
+        <%= f.input :function %>
+        <%= f.input :recorded_address %>
+        <%= f.input :severance %>
+        <%= f.input :reason %>
+        <%= f.input :other_reason %>
+        <%= f.input :termination_discharge_reason %>
+        <%= f.input :other_termination_discharge_reason %>
+        <%= f.input :regret_flag ,:label => "Regrettable", :as=> :radio %>
+        <%= f.input :rehire_flag, :label => "Would Rehire? ", :as=> :radio %>
+        <%= f.input :conduct %>
+        <%= f.input :external_matter_history %>
+        <%= f.input :history_impact %>
+        <%= f.input :category %>
+        <%= f.input :last_pms_performance_rating %>
+        <%= f.input :previous_pms_year_performance_rating %>
+        <%= f.input :before_previous_pms_year_performance_rating %>
+        <%= f.input :ctc_on_hire %>
+        <%= f.input :ctc_on_severance %>
+        <%= f.input :notice_period_served %>
+        <%= f.input :notice_period_paid %>
+        <%= f.input :full_n_final_status %>
+        <%= f.input :settlement_pending_side %>
+        <%= f.input :rating %>
+
+
+        <!-- #need this to be provide hidden creator value   -->
+        <%= f.input :created_by , :as => :hidden , :value => current_user.id %>
+
+    <% end %>
+    <% if  current_user.role.name == "admin" %>
+        <%= f.inputs :approver, :status_id, :is_published %>
+    <% end %>
+    <%= f.actions %>
+
+    <!--
+     :date_of_joining, :date_of_leaving, :employee_id, :employer_id, :exit_comments, :rating, :status_id, \
+  :created_by, :approved_by, :is_published, :employee_code, :resignation_date, :designation, :department, :function, \
+  :recorded_address, :severance_id, :reason_id, :other_reason, :discharge_termination_reason_id, \
+  :other_discharge_termination_reason, :regret_flag, :rehire_flag_id, :conduct_id, :external_matter_history_id, \
+  :history_impact_id, :category_id, :last_pms_performance_rating, :previous_pms_year_performance_rating, \
+  :before_previous_pms_year_performance_rating, :ctc_on_hire, :ctc_on_severance, :notice_period_served_id, \
+  :notice_period_paid_id, :full_n_final_status_id, :settlement_pending_side_id
+    -->
+
+<% end %>

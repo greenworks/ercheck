@@ -1,0 +1,31 @@
+<div class="login-section">
+<div class="error-message">
+  <%= devise_error_messages! %>
+</div>
+<table width="100%" border="0">
+  <tr>
+    <td width="70%" valign="top">
+       <%= render "/common/register_info" %>
+    </td>
+    <td width="30%"  valign="top" class="register">
+ <h2>Sign in</h2>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+  <% end -%>
+   <br/>
+  <div><%= f.submit "Sign in", :class=>"art-button" %></div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+    </td>
+  </tr>
+</table>
+</div>

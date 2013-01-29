@@ -1,0 +1,26 @@
+// Place all the styles related to the employees controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+table, td, th
+  {
+  /*border:1px solid #ff4500;*/
+}
+th
+  {
+  background-color:#ff4500;
+  color:white;
+}
+
+.employees_table th .current {
+  padding-right: 18px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.employees_table th .asc {
+  background-image: url(../images/up_arrow.gif);
+}
+
+.employees_table th .desc {
+  background-image: url(../images/down_arrow.gif);
+}

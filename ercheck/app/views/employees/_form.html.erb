@@ -1,0 +1,39 @@
+<%= semantic_form_for  [:admin, @employee] do |f| %>
+    <% if @employee.errors.any? %>
+        <div id="error_explanation">
+          <h2>This employee record can not be created due to below <%= pluralize(@employee.errors.count, "error") %>  from input:</h2>
+
+          <ul>
+            <% @employee.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <%= f.inputs do %>
+        <%= f.input :name %>
+        <%= f.input :surname %>
+        <%= f.input :mother_name %>
+        <%= f.input :father_name %>
+        <%= f.input :date_of_birth , :as => :date_picker%>
+        <%= f.input :pancard, :label => "PAN" %>
+        <%= f.input :metric_passing_year %>
+        <%= f.input :board %>
+        <%= f.input :ssc_marksheet_code  ,:label => "SSC Marksheet Code"%>
+        <%= f.input :highest_qualification %>
+        <%= f.input :highest_qualification_passing_year %>
+        <%= f.input :university %>
+        <%= f.input :mobile %>
+        <%= f.input :res_landline %>
+
+        <!-- #need this to be provide hidden creator value   -->
+        <%= f.input :created_by , :as => :hidden , :value => current_user.id %>
+        <%= f.input :status_id , :as => :hidden , :value => Status.find_by_name("New").id %>
+        <%= f.input :is_published , :as => :hidden , :value => 0 %>
+
+    <% end %>
+    <% if  current_user.role.name == "admin" %>
+        <%= f.inputs :approver, :status_id, :is_published %>
+    <% end %>
+    <%= f.actions %>
+<% end %>

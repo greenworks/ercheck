@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @employee.name %>
+</p>
+
+<p>
+  <b>PAN card:</b>
+  <%= @employee.pancard %>
+</p>
+
+<p>
+  <b>Date of birth:</b>
+  <%= @employee.date_of_birth %>
+</p>
+
+<p>
+  <b>SSC Marsheet Code:</b>
+  <%= @employee.ssc_marksheet_code %>
+</p>
+
+<p>
+  <b>University:</b>
+  <%= @employee.university.name %>
+</p>
+
+<br/> <br/>
+
+<%= link_to 'Edit', edit_employee_path(@employee) %>
+
+<%= link_to 'Destroy', @employee, confirm: 'Are you sure?', method: :delete %>
+
+<%= link_to 'Back', employees_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  pancard: MyString
+  date_of_birth: 2012-12-04
+  ssc_marksheet_id: MyString
+  university_id: 1
+
+two:
+  name: MyString
+  pancard: MyString
+  date_of_birth: 2012-12-04
+  ssc_marksheet_id: MyString
+  university_id: 1

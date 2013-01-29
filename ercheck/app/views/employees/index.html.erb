@@ -1,0 +1,16 @@
+<h1>Employees</h1>
+
+
+
+<%= form_tag employees_path, :method => 'get', :id => "employees_search" do %>
+     <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+    <div id="employees"><%= render 'employees' %></div>
+<% end %>
+
+
+
+<!-- commenting as New Employee going
+<!--%= link_to 'New Employee', new_employee_path %-->

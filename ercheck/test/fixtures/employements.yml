@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  employee_id: 1
+  employer_id: 1
+  date_of_joining: 2012-12-04
+  date_of_leaving: 2012-12-04
+  exit_comments: MyText
+  rating: 1
+
+two:
+  employee_id: 1
+  employer_id: 1
+  date_of_joining: 2012-12-04
+  date_of_leaving: 2012-12-04
+  exit_comments: MyText
+  rating: 1
