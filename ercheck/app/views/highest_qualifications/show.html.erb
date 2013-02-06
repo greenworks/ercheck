@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @highest_qualification.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @highest_qualification.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_highest_qualification_path(@highest_qualification) %> |
+<%= link_to 'Back', highest_qualifications_path %>

@@ -38,7 +38,7 @@ ActiveAdmin.register Employee do
     @employee = Employee.find(params[:id])
     @employee.update_attribute(:status_id,Status.find_by_name("Submitted").id)
     #refresh
-    redirect_to admin_my_employees_path, :notice => "Employee record was submitted !"
+    redirect_to admin_my_employees_path, :notice => "Employment record was created!"
   end
 
   action_item :only => :show do
@@ -50,7 +50,7 @@ ActiveAdmin.register Employee do
     if @employee.status.name == "New"
       link_to 'Edit Employee', [:edit, :admin, employee]
     else
-      link_to 'View Employments', "admin_my_employees_path" #admin_seatch_employment
+      link_to 'View Employments', "admin_my_employees_path" #admin_search_employment
     end
   end
 
@@ -72,19 +72,17 @@ ActiveAdmin.register Employee do
     #link_to('employements',"/employements/new?id=" & employee.id )
   end
 
-=begin
   controller do
-    def search_employee
-      @employee = Employee.search_by_pancard(params[:pancard],params[:marksheet])
-
-      respond_to do |format|
-        format.html # search_employee.html.erb
-        format.json { render json: @employee }
+    def new
+      if params[:pancard]
+        @employee = Employee.find_or_create_by_pancard(params[:pancard]) # search_by_pancard(params[:pancard])
+        #redirect_to edit_admin_employee_path(:employee => @employee), :notice => "Existing Employee was found!"
+      elsif params.nil?
+        @employee=Employee.new
+        redirect_to self , :notice => "Employee with this PAN not found! Create New."
       end
-
     end
   end
-=end
 
 =begin
   action_item :only => :show do
@@ -164,7 +162,9 @@ ActiveAdmin.register Employee do
       row "Board" do |employee|
         employee.board && employee.board.name
       end
-      row :highest_qualification
+      row :highest_qualification do |employee|
+        employee.highest_qualification && employee.highest_qualification.name
+      end
       row :highest_qualification_passing_year
       row "University" do |employee|
         employee.university && employee.university.name

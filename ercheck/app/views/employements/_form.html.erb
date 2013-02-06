@@ -11,16 +11,16 @@
       </ul>
     </div>
   <% end %>
-    <!--h4>Employment Record for Employee -->
+    <h4>Employment Record for Employee
       <!--%= Employee.find(params[:employee]).name %-->
       <!--%= Employee.find(params[:employee]).pancard % -->
-      <!-- with Employer --><!--%= current_user.employer.name %> </h4 -->
+      with Employer <%=current_user.employer.name %> </h4>
   <%= f.inputs do %>
         <!--%= f.input :employee, :collection => Employee.all.map{ |employee| [employee.name, employee.pancard] }%-->
         <!--%= f.input :employee_id , :as => :hidden , :value => params[:employee] %-->
         <!--%= f.input :employee %-->
-        <%= f.input :employee_id %>
-        <%= f.input :employer_id %>
+        <%= f.input :employee_id , :as => :hidden %>
+        <%= f.input :employer_id , :as => :hidden %>
         <!--%= f.input :employer %-->
         <%= f.input :employee_code %>
         <%= f.input :date_of_joining , :as => :date_picker%>
@@ -51,7 +51,7 @@
         <%= f.input :notice_period_paid %>
         <%= f.input :full_n_final_status %>
         <%= f.input :settlement_pending_side %>
-        <%= f.input :rating %>
+        <!--%= f.input :rating %-->
 
 
         <!-- #need this to be provide hidden creator value   -->
@@ -63,14 +63,5 @@
     <% end %>
     <%= f.actions %>
 
-    <!--
-     :date_of_joining, :date_of_leaving, :employee_id, :employer_id, :exit_comments, :rating, :status_id, \
-  :created_by, :approved_by, :is_published, :employee_code, :resignation_date, :designation, :department, :function, \
-  :recorded_address, :severance_id, :reason_id, :other_reason, :discharge_termination_reason_id, \
-  :other_discharge_termination_reason, :regret_flag, :rehire_flag_id, :conduct_id, :external_matter_history_id, \
-  :history_impact_id, :category_id, :last_pms_performance_rating, :previous_pms_year_performance_rating, \
-  :before_previous_pms_year_performance_rating, :ctc_on_hire, :ctc_on_severance, :notice_period_served_id, \
-  :notice_period_paid_id, :full_n_final_status_id, :settlement_pending_side_id
-    -->
 
 <% end %>

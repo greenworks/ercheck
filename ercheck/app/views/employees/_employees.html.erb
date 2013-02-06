@@ -1,7 +1,14 @@
-<%
-   @employees = Employee.search_accessible_employees(current_user.id)
-%>
-
+<% if      params[:status]=="Submitted"
+     @employees = Employee.search_employees_submitted_by_team(current_user.id)
+   elsif      params[:status]=="Approved"
+     @employees = Employee.search_employees_approved(current_user.id)
+   elsif      params[:status]=="Published"
+     @employees = Employee.search_employees_published(current_user.id)
+   elsif      params[:status]=="All"
+     @employees = Employee.search_accessible_employees(current_user.id)
+   else
+     @employees = Employee.search_accessible_employees(current_user.id)
+end %>
 <table cellspacing="0" cellpadding="0" border="0" paginator="true" class="index_table index" id="employees">
   <thead>
   <tr>

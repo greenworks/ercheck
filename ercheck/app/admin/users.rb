@@ -1,6 +1,24 @@
 ActiveAdmin.register User do
   menu :parent => "Masters", :if => proc{ current_user.role.name=="admin" }
 
+
+  action_item :only => :show  do
+    link_to "New User", "/admin/users/new"
+  end
+
+=begin
+  member_action :reset_password do
+    @user = User.find(params[:id])
+    @user.update_attribute(:password,"password")
+    redirect_to admin_users_path , :notice => "password was reset!"
+  end
+
+  action_item :only => :show   do
+    link_to admin_users_path , :notice => "password was reset!"
+  end
+=end
+
+
   index do
     selectable_column
     column :id

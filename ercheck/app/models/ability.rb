@@ -7,25 +7,18 @@ class Ability
 
     #user
     #manager
-    #srmanager
     #admin
 
        if user.role.name == "admin"
          can :manage, :all
-       else
-          if user.role.name == "srmanager"
-              can :manage, :all
-          else
-             if user.role.name == "manager"
-                 can :manage, :all
-             else
-               if user.role.name == "user"
-                   can :manage, Employee , :creator => user
-                   can :manage, Employement , :creator => user
-               end
-             end
-          end
-
+       elsif user.role.name == "manager"
+         cannot :manage, :Employer
+         can :manage, Employee , :creator => user
+         can :manage, Employement , :creator => user
+       elsif user.role.name == "user"
+         can :manage, Employee , :creator => user
+         can :manage, Employement , :creator => user
+         cannot :manage, :Employer
        end
 
     # The first argument to `can` is the action you are giving the user permission to do.

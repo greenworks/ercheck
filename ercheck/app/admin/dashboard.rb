@@ -2,14 +2,13 @@ ActiveAdmin.register_page "Dashboard" do
 
   menu :priority => 1, :label => proc{ I18n.t("active_admin.dashboard") }
 
-
-  content :title => proc{   I18n.t("active_admin.dashboard")  + " for " + (current_user.role.name).capitalize  } do
+  content :title => proc{   I18n.t("active_admin.dashboard")  + " for "  + (current_user.role.name).capitalize  + " of " + (current_user.employer.name)} do
 
    render "employees/search"
 
     br
 
-    #if current_user.role && current_user.role.name == "user"
+    if current_user.role && current_user.role.name == "user"
 
       panel "Recently Created Employees records"  do
         table_for Employee.where("created_by = ? ",current_user ).order("created_at desc").limit(5) do
@@ -38,32 +37,34 @@ ActiveAdmin.register_page "Dashboard" do
         strong { link_to "View All Employees created by you", admin_my_employees_path }
       end
 
-    #end
-    br
-
-=begin
-    panel "Recently Created Employments records"  do
-      table_for Employement.order("created_at desc").where(:created_by => current_user).limit(5) do
-
-        column "Employee" do |employement|
-          link_to employement.employee.name, [:admin, employement ]
-        end
-        column "Employer" do |employement|
-          employement.employer.employer_code
-        end
-        column "Joining On" , :date_of_joining
-        column "Left On" , :date_of_leaving
-        column "Duration" do |employement|
-          distance_of_time_in_words(employement.date_of_leaving, employement.date_of_joining)
-        end
-        column "Exit Comments", :exit_comments
-        column "Rating", :rating
-      end
-      strong { link_to "View All Employments", admin_my_employments_path }
     end
+=begin
+
+   if current_user.role && current_user.role.name == "manager"
+     panel "User wise summary for records created"   do
+       table_for Employement.all(:select  => "created_by as creator, count(employee_id) as employees", :group => "created_by") do
+         column "creator" do |created_by|
+           User.find(created_by).name
+         end
+         column :employees
+       end
+     end
+     strong { link_to "View All Employments", admin_my_employments_path }
+   end
 =end
 
-end
+
+   if current_user.role && current_user.role.name == "admin"
+     panel "Employer wise summary"   do
+      table_for Employement.all(:select  => "employer_id, count(employee_id) as employees", :group => "employer_id ") do
+        column :employer
+        column :employees
+      end
+     end
+     strong { link_to "View All Employments", admin_my_employments_path }
+   end
+
+  end
 
 =begin
     div :class => "blank_slate_container", :id => "dashboard_default_message" do

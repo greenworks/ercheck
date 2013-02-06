@@ -1,4 +1,12 @@
 Ercheck::Application.routes.draw do
+  resources :functions
+
+  resources :departments
+
+  resources :designations
+
+  resources :highest_qualifications
+
   resources :enquiries
 
   ActiveAdmin.routes(self)

@@ -6,7 +6,8 @@ ActiveAdmin.register_page "My Employees" do
   #scope :published
 
   content do
-     render "/employees/employees"
+    params[:status]="All"
+    render "/employees/employees"
   end
 
   action_item do

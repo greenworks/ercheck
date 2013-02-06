@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130202102214) do
+ActiveRecord::Schema.define(:version => 20130206221502) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -48,6 +48,20 @@ ActiveRecord::Schema.define(:version => 20130202102214) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "departments", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "designations", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "employees", :force => true do |t|
     t.string   "name"
     t.string   "pancard"
@@ -66,7 +80,7 @@ ActiveRecord::Schema.define(:version => 20130202102214) do
     t.string   "string"
     t.integer  "metric_passing_year"
     t.integer  "board_id"
-    t.string   "highest_qualification"
+    t.string   "highest_qualification_id"
     t.string   "highest_qualification_passing_year"
     t.integer  "mobile"
     t.string   "res_landline"
@@ -87,9 +101,9 @@ ActiveRecord::Schema.define(:version => 20130202102214) do
     t.integer  "status_id"
     t.string   "employee_code"
     t.date     "resignation_date"
-    t.string   "designation"
-    t.string   "department"
-    t.string   "function"
+    t.integer  "designation_id"
+    t.integer  "department_id"
+    t.integer  "function_id"
     t.string   "recorded_address"
     t.integer  "severance_id"
     t.integer  "reason_id"
@@ -143,6 +157,20 @@ ActiveRecord::Schema.define(:version => 20130202102214) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "functions", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "highest_qualifications", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "history_impacts", :force => true do |t|

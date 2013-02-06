@@ -1,4 +1,18 @@
+<div class="section">
+  <h3>Search Employee by PAN</h3>
+  <div class="section_contents">
+    <form method="get" id="search_by_pan" class="filter_form" action="/admin/employees/new" accept-charset="UTF-8">
+      <div class="filter_form_field filter_string">
+        <label for="search" class=" label">PAN : </label>   <input type="text" name="pancard" id="pancard" />     <br/>
+        <!--label for="search" class=" label">Date Of Birth : </label>   <input type="text" name="date_of_birth" id="date_of_birth" />     <br/-->
+        <input type="submit" value="Search" name="commit" id="q_submit" />
+      </div>
+    </form>
+  </div>
+</div>
+
 <%= semantic_form_for  [:admin, @employee] do |f| %>
+    <% if !params[:commit] %>
     <% if @employee.errors.any? %>
         <div id="error_explanation">
           <h2>This employee record can not be created due to below <%= pluralize(@employee.errors.count, "error") %>  from input:</h2>
@@ -10,6 +24,10 @@
           </ul>
         </div>
     <% end %>
+
+    <% end %>
+
+
     <%= f.inputs do %>
         <%= f.input :name %>
         <%= f.input :surname %>
@@ -17,13 +35,13 @@
         <%= f.input :father_name %>
         <%= f.input :date_of_birth , :as => :date_picker%>
         <%= f.input :pancard, :label => "PAN" %>
-        <%= f.input :metric_passing_year %>
+        <%= f.input :metric_passing_year, :as => :select ,:label => "10th passing year", :collection => Range.new(1901, 2012)  %>
         <%= f.input :board %>
-        <%= f.input :ssc_marksheet_code  ,:label => "SSC Marksheet Code"%>
+        <%= f.input :ssc_marksheet_code  ,:label => "10th Seat Number"%>
         <%= f.input :highest_qualification %>
-        <%= f.input :highest_qualification_passing_year %>
+        <%= f.input :highest_qualification_passing_year, :as => :select , :collection => Range.new(1901, 2012)   %>
         <%= f.input :university %>
-        <%= f.input :mobile %>
+        <%= f.input :mobile , :as => :string%>
         <%= f.input :res_landline %>
 
         <!-- #need this to be provide hidden creator value   -->

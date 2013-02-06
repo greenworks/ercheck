@@ -15,31 +15,32 @@ class Employement < ActiveRecord::Base
   belongs_to  :rehire_flag
   belongs_to :termination_discharge_reason
   belongs_to :conduct
-
+  belongs_to :designation
+  belongs_to :function
+  belongs_to :department
 
   belongs_to :approver, :class_name => "User",   :foreign_key => "approved_by"
   belongs_to :creator,  :class_name => "User",   :foreign_key => "created_by"
 
   attr_accessible :employer_attributes, :employees_attributes, :employee_id, :employer_id, :date_of_joining, :date_of_leaving , :exit_comments, :rating, :status_id, \
-  :created_by, :approved_by, :is_published, :employee_code, :resignation_date, :designation, :department, :function, \
+  :created_by, :approved_by, :is_published, :employee_code, :resignation_date, :designation_id, :department_id, :function_id, \
   :recorded_address, :severance_id, :reason_id, :other_reason, :termination_discharge_reason_id, \
   :other_termination_discharge_reason, :regret_flag, :rehire_flag_id, :conduct_id, :external_matter_history_id, \
   :history_impact_id, :category_id, :last_pms_performance_rating, :previous_pms_year_performance_rating, \
   :before_previous_pms_year_performance_rating, :ctc_on_hire, :ctc_on_severance, :notice_period_served_id, \
   :notice_period_paid_id, :full_n_final_status_id, :settlement_pending_side_id
 
-  validates_presence_of  :date_of_joining, :date_of_leaving, :exit_comments, :rating, \
-  :severance_id, :reason_id, :regret_flag, :rehire_flag_id, :conduct_id, :external_matter_history_id , :category_id, \
+  validates_presence_of  :date_of_joining, :date_of_leaving, :severance_id, :reason_id, :regret_flag, :rehire_flag_id, :conduct_id, :external_matter_history_id , :category_id, \
   :last_pms_performance_rating, :ctc_on_hire, :ctc_on_severance, :notice_period_served_id, :notice_period_paid_id, \
   :full_n_final_status_id, :employee_id, :employer_id
 
+  #validates :exit_comments, :length => { :in => 10..500}
 
-  validates :exit_comments, :length => { :in => 10..500}
-
-  validates :rating, :numericality=> { :greater_than_or_equal_to =>1, :less_than_or_equal_to => 10}
+  #validates :rating, :numericality=> { :greater_than_or_equal_to =>1, :less_than_or_equal_to => 10}
   validates :date_of_leaving , :date => { :after => :date_of_joining, :message => 'Date of Leaving should be after Joining only' }
-  validates :date_of_leaving , :date => { :after => :resignation_date, :message => 'Date of Leaving should be after Resignation only' }
+  validates :date_of_leaving , :date => { :on_or_after => :resignation_date, :message => 'Date of Leaving should be on/after Resignation only' }
   validates :resignation_date , :date => { :after => :date_of_joining, :message => 'Date of Resignation should be after Joining only' }
+  validates :date_of_joining, :timeliness => {:on_or_before => lambda { Date.current }, :type => :date}
 
   def self.search_by_employer(employer)
     if search
@@ -69,4 +70,48 @@ class Employement < ActiveRecord::Base
     end
   end
 
+
+  def self.search_employments_submitted_by_team(current_user)
+    if  User.find(current_user).role.name=="manager"
+      where(' status_id =? and created_by IN (?)', Status.find_by_name('Submitted') , User.search(current_user).collect(&:id))
+    else
+      where(' status_id =? and created_by IN (?)', Status.find_by_name('Submitted') , current_user)
+    end
+  end
+
+
+  def self.search_employments_approved(current_user)
+    if  User.find(current_user).role.name=="manager"
+      where(' status_id =? and created_by IN (?)', Status.find_by_name('Approved') , User.search(current_user).collect(&:id))
+    else
+      where(' status_id =? and created_by IN (?)', Status.find_by_name('Approved') , current_user)
+    end
+  end
+
+
+  def self.search_employments_published(current_user)
+    if  User.find(current_user).role.name=="manager"
+      where(' status_id =? and created_by IN (?)', Status.find_by_name('Published') , User.search(current_user).collect(&:id))
+    else
+      where(' status_id =? and created_by IN (?)', Status.find_by_name('Published') , current_user)
+    end
+  end
+
+
+  def self.search_accessible_employments(current_user)
+    if  User.find(current_user).role.name=="manager"
+      where(' created_by IN (?)', User.search(current_user).collect(&:id))
+    else
+      where(' created_by =?', "#{current_user}")
+    end
+  end
+
+
+  def self.search_all_published_employments(current_user)
+    if  User.find(current_user).role.name=="manager"
+      where(' created_by IN (?)', User.search(current_user).collect(&:id))
+    else
+      where(' created_by =?', "#{current_user}")
+    end
+  end
 end

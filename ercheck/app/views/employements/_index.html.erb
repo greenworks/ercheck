@@ -1,12 +1,14 @@
-<%
-   if   current_user.role.name == "manager"
-     @employements = Employement.search_by_manager(current_user.id)
-   elsif current_user.role.name == "user"
-     @employements = Employement.search_by_creator(current_user.id)
+<% if      params[:status]=="Submitted"
+     @employements = Employement.search_employments_submitted_by_team(current_user.id)
+   elsif      params[:status]=="Approved"
+     @employements = Employement.search_employments_approved(current_user.id)
+   elsif      params[:status]=="Published"
+     @employements = Employement.search_employments_published(current_user.id)
+   elsif      params[:status]=="All"
+     @employements = Employement.search_accessible_employments(current_user.id)
    else
      @employements = Employement.search_all
-   end
-%>
+   end %>
 
 <table cellspacing="0" cellpadding="0" border="0" paginator="true" class="index_table index" id="employements">
     <thead>

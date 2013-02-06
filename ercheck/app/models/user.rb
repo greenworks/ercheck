@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 
   def self.search(manager)
     if manager
-      where('manager_id =?', "#{4}")
+      where(' manager_id =?', "#{manager}")
     else
       scoped
     end

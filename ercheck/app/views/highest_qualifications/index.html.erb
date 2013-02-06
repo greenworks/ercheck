@@ -1,0 +1,25 @@
+<h1>Listing highest_qualifications</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @highest_qualifications.each do |highest_qualification| %>
+  <tr>
+    <td><%= highest_qualification.name %></td>
+    <td><%= highest_qualification.description %></td>
+    <td><%= link_to 'Show', highest_qualification %></td>
+    <td><%= link_to 'Edit', edit_highest_qualification_path(highest_qualification) %></td>
+    <td><%= link_to 'Destroy', highest_qualification, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Highest qualification', new_highest_qualification_path %>
