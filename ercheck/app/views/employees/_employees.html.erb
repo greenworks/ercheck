@@ -14,8 +14,8 @@
     <th class="employements">Employments</th>
     <th class="data_actions">Data Actions</th>
     <th class="status">Status</th>
-    <% if  current_user.role.name = "manager"  %>
         <th class="business_actions">Business Actions</th>
+    <% if  current_user.role.name == "manager"  %>
         <th class="created_by"><a href="/admin/employees?order=created_by_desc">Created By</a></th>
     <% end %>
     <th class="is_published">Published?</th>

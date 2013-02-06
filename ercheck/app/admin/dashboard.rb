@@ -5,33 +5,40 @@ ActiveAdmin.register_page "Dashboard" do
 
   content :title => proc{   I18n.t("active_admin.dashboard")  + " for " + (current_user.role.name).capitalize  } do
 
-
    render "employees/search"
 
     br
-    panel "Recently Created Employees records"  do
-      table_for Employee.where("created_by = (?) OR (?) ",current_user, current_user.role.name=="admin" ).order("created_at desc").limit(5) do
-        column :name do |employee|
-          link_to employee.name, [:admin, employee]
+
+    #if current_user.role && current_user.role.name == "user"
+
+      panel "Recently Created Employees records"  do
+        table_for Employee.where("created_by = ? ",current_user ).order("created_at desc").limit(5) do
+          column :name do |employee|
+            link_to employee.name, [:admin, employee]
+          end
+          column "PAN", :pancard
+          column "Date of Birth" , :date_of_birth
+          column "Employment Records" do |employee|
+            employee.employements.size
+          end
+
+          column "Board", :board
+
+          column "Marksheet", :ssc_marksheet_code
+
+          column "Created By" do |employee|
+            User.find(employee.created_by).name
+          end
+
+          column "Record Status" do |employee|
+            employee.status && employee.status.name
+          end
+
         end
-        column "PAN", :pancard
-        column "Date of Birth" , :date_of_birth
-        column "Employment Records" do |employee|
-          employee.employements.size
-        end
-
-        column "Board", :board
-
-        column "Marksheet", :ssc_marksheet_code
-
-        column "Record Status" do |employee|
-          employee.status && employee.status.name
-        end
-
+        strong { link_to "View All Employees created by you", admin_my_employees_path }
       end
-      strong { link_to "View All Employees created by you", admin_my_employees_path }
-    end
 
+    #end
     br
 
 =begin

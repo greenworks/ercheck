@@ -1,6 +1,6 @@
 ActiveAdmin.register Employer do
 
-  menu :parent => "Settings", :if => proc{ current_user.role.name=="admin" }
+  menu :parent => "Masters", :if => proc{ current_user.role.name=="admin" }
 
   index do
     column "Name" , :name

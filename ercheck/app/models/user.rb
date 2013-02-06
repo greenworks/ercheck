@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_many :employements
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :employer_id
+  attr_accessible :user_id, :name, :role_id, :email, :password, :password_confirmation, :remember_me, :employer_id, :manager_id\
   # attr_accessible :title, :body
 
   def self.search(manager)

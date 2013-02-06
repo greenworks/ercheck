@@ -39,6 +39,8 @@ Ercheck::Application.routes.draw do
 
   get "info/associate"
 
+  get "info/access_error"
+
   devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end
 
   # The priority is based upon order of creation:

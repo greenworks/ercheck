@@ -1,6 +1,6 @@
 ActiveAdmin.register Employement do
 
-  menu :parent => "Settings", :if => proc{ current_user.role.name=="admin" }
+  menu :parent => "Masters", :if => proc{ current_user.role.name=="admin" }
 
   filter :employee, :as => :select, :collection => proc { Employee.all }
   filter :employer

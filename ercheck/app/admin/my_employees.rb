@@ -1,6 +1,7 @@
 ActiveAdmin.register_page "My Employees" do
 
-  menu :parent => "My Account", :priority => 5
+
+  menu :parent => "My Account", :if => proc{ current_user.role.name!="admin" }
 
   #scope :published
 

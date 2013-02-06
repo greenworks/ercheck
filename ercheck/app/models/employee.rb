@@ -19,7 +19,7 @@ class Employee < ActiveRecord::Base
     :highest_qualification, :highest_qualification_passing_year, :mobile, :res_landline
 
     validates_presence_of  :date_of_birth, :name, :pancard,  :university_id ,:ssc_marksheet_code, \
-    :metric_passing_year, :Board_id
+    :metric_passing_year, :board_id
 
     validates :name, :length => { :in => 3..50, :message => "At least 3 characters expected in name" }
     validates :name, :format => { :with => /\A[a-zA-Z\s]+\z/,:message => "Only letters allowed" }
@@ -46,7 +46,7 @@ class Employee < ActiveRecord::Base
 
     def self.search_by_manager(manager)
         if manager
-          where('created_by IN (?) or created_by =?', User.search(manager).collect(&:id),manager)
+          where(' created_by IN (?) or created_by =?', User.search(manager).collect(&:id),manager)
         else
           scoped
         end
@@ -81,7 +81,7 @@ class Employee < ActiveRecord::Base
     def self.search_accessible_employees(currentuser)
       if currentuser
           if  User.find(currentuser).role.name=="manager"
-             where('status !=?  created_by IN (?) or created_by =?', Status.find_by_name('Approved') , User.search(currentuser).collect(&:id),currentuser)
+             where(' status_id !=? and created_by IN (?)', Status.find_by_name('Approved') , User.search(currentuser).collect(&:id))
           else
              where('created_by =?', "#{currentuser}")
           end

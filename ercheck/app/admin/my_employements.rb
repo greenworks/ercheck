@@ -1,6 +1,6 @@
 ActiveAdmin.register_page "My Employments" do
 
-  menu :parent => "My Account", :priority => 5
+  menu :parent => "My Account", :if => proc{ current_user.role.name!="admin" }
 
   content do
     render "/employements/index"
