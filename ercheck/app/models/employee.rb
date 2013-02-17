@@ -51,7 +51,7 @@ class Employee < ActiveRecord::Base
 
     def self.search_by_manager(manager)
         if manager
-          where(' created_by IN (?) or created_by =?', User.search(manager).collect(&:id),manager)
+          where(' created_by IN (?) or created_by =?', User.search_reporting_users(manager).collect(&:id),manager)
         else
           scoped
         end
@@ -60,7 +60,7 @@ class Employee < ActiveRecord::Base
 
   def self.search_employees_submitted_by_team(current_user)
     if  User.find(current_user).role.name=="manager"
-        where(' status_id =? and created_by IN (?)', Status.find_by_name('Submitted') , User.search(current_user).collect(&:id))
+        where(' status_id =? and created_by IN (?)', Status.find_by_name('Submitted') , User.search_reporting_users(current_user).collect(&:id))
     else
         where(' status_id =? and created_by IN (?)', Status.find_by_name('Submitted') , current_user)
     end
@@ -69,7 +69,7 @@ class Employee < ActiveRecord::Base
 
   def self.search_employees_approved(current_user)
     if  User.find(current_user).role.name=="manager"
-      where(' status_id =? and created_by IN (?)', Status.find_by_name('Approved') , User.search(current_user).collect(&:id))
+      where(' status_id =? and created_by IN (?)', Status.find_by_name('Approved') , User.search_reporting_users(current_user).collect(&:id))
     else
       where(' status_id =? and created_by IN (?)', Status.find_by_name('Approved') , current_user)
     end
@@ -78,7 +78,7 @@ class Employee < ActiveRecord::Base
 
   def self.search_employees_published(current_user)
     if  User.find(current_user).role.name=="manager"
-      where(' status_id =? and created_by IN (?)', Status.find_by_name('Published') , User.search(current_user).collect(&:id))
+      where(' status_id =? and created_by IN (?)', Status.find_by_name('Published') , User.search_reporting_users(current_user).collect(&:id))
     else
       where(' status_id =? and created_by IN (?)', Status.find_by_name('Published') , current_user)
     end
@@ -122,7 +122,7 @@ class Employee < ActiveRecord::Base
 
     def self.search_accessible_employees(current_user)
       if  User.find(current_user).role.name=="manager"
-         where(' created_by IN (?)', User.search(current_user).collect(&:id))
+         where(' created_by IN (?)', User.search_reporting_users(current_user).collect(&:id))
       else
              where(' created_by =?', "#{current_user}")
       end

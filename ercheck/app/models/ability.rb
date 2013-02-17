@@ -13,11 +13,11 @@ class Ability
          can :manage, :all
        elsif user.role.name == "manager"
          cannot :manage, :Employer
-         can :manage, Employee , :creator => user
-         can :manage, Employement , :creator => user
+         can :manage, Employee , :creator.in?(User.search_reporting_users(user).collect(&:id))
+         can :manage, Employement , :creator.in?(User.search_reporting_users(user).collect(&:id))
        elsif user.role.name == "user"
-         can :manage, Employee , :creator => user
-         can :manage, Employement , :creator => user
+         can :manage, Employee , :creator.in?(User.search_reporting_users(user).collect(&:id))
+         can :manage, Employement , :creator.in?(User.search_reporting_users(user).collect(&:id))
          cannot :manage, :Employer
        end
 

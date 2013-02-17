@@ -8,22 +8,22 @@
      @employees = Employee.search_accessible_employees(current_user.id)
    else
      @employees = Employee.search_accessible_employees(current_user.id)
-end %>
+   end %>
 <table cellspacing="0" cellpadding="0" border="0" paginator="true" class="index_table index" id="employees">
   <thead>
   <tr>
     <!--th class="sorted-desc id"><a href="/admin/employees?order=id_asc">Id</a></th-->
-    <th class="name"><a href="/admin/employees?order=name_desc">Name</a></th>
-    <th class="pan"><a href="/admin/employees?order=pancard_desc">PAN</a></th>
-    <th class="date_of_birth"><a href="/admin/employees?order=date_of_birth_desc">Date of Birth</a></th>
-    <th class="ssc_code"><a href="/admin/employees?order=ssc_marksheet_code_desc">SSC Marksheet Id</a></th>
+    <th class="name">Name</th>
+    <th class="pan">PAN</th>
+    <th class="date_of_birth">Date of Birth</th>
+    <th class="ssc_code">SSC Marksheet Id</th>
     <th class="university">University</th>
     <th class="employements">Employments</th>
     <th class="data_actions">Data Actions</th>
     <th class="status">Status</th>
         <th class="business_actions">Business Actions</th>
     <% if  current_user.role.name == "manager"  %>
-        <th class="created_by"><a href="/admin/employees?order=created_by_desc">Created By</a></th>
+        <th class="created_by">Created By</th>
     <% end %>
     <th class="is_published">Published?</th>
   </tr>

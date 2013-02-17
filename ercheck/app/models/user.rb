@@ -17,11 +17,11 @@ class User < ActiveRecord::Base
   attr_accessible :user_id, :name, :role_id, :email, :password, :password_confirmation, :remember_me, :employer_id, :manager_id\
   # attr_accessible :title, :body
 
-  def self.search(manager)
+  def self.search_reporting_users(manager)
     if manager
-      where(' manager_id =?', "#{manager}")
+      where(' id =? OR manager_id =?', "#{manager}", "#{manager}")
     else
-      scoped
+      where(' id =?', "#{manager}")
     end
   end
 end
