@@ -40,7 +40,7 @@
         <td class="data_actions">
           <a href="/admin/employees/<%= employee.id %>" class="member_link view_link">View</a>
 
-          <% if employee.status.nil? || employee.status.name == "New" %>
+          <% if employee.status.nil? || employee.status.name == "Created" %>
             <a href="/admin/employees/<%= employee.id %>/edit" class="member_link edit_link">Edit</a>
           <% end %>
 
@@ -50,7 +50,7 @@
         </td>
         <td class="status"><%= employee.status && employee.status.name %></td>
         <td class="business_actions">
-          <% if employee.status.nil? || employee.status.name == "New" %>
+          <% if employee.status.nil? || employee.status.name == "Created" %>
               <a href="/admin/employees/<%= employee.id %>/submit" class="member_link publish_link">Submit</a>
           <% end %>
           <% if current_user.role.name == "manager" && (employee.status != nil && employee.status.name == "Submitted") %>
@@ -62,8 +62,8 @@
         </td>
         <% if current_user.role.name == "manager" %>
             <td class="created_by"><%= employee.creator.name %></a></td>
+            <td class="is_published"><%= employee.is_published? ? "Yes" : "No" %></td>
         <% end %>
-        <td class="is_published"><%= employee.is_published? ? "Yes" : "No" %></td>
       </tr>
   <% end %>
   </tbody>

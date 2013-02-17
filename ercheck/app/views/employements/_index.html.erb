@@ -14,30 +14,32 @@
     <thead>
       <tr>
         <th class="employee">Employee</th>
+        <th class="employer">PAN</th>
+        <th class="employer">Date Of Birth</th>
         <th class="employer">Employer</th>
         <th class="duration">Duration</th>
-        <th class="sortable exit_comments"><a href="/admin/employements?order=exit_comments_desc">Exit Comments</a></th>
-        <th class="sortable rating"><a href="/admin/employements?order=rating_desc">Rating</a></th>
+        <th class="employer">Category</th>
         <th class="data_actions">Data Actions</th>
         <th class="status">Status</th>
-        <% if  current_user.role.name = "manager"  %>
+        <% if  current_user.role.name == "manager"  %>
             <th class="business_actions">Business Actions</th>
-            <th class="created_by"><a href="/admin/employements?order=created_by_desc">Created By</a></th>
+            <th class="created_by">Created By</th>
+            <th class="is_published">Published?</th>
         <% end %>
-        <th class="is_published">Published?</th>
       </tr>
     </thead>
     <tbody>
      <% @employements.each do |employement| %>
          <tr >
             <td class="employee"><%= employement.employee.name %></td>
-            <td class="employer"><%= employement.employer.name %></td>
-            <td class="duration"><%= distance_of_time_in_words(employement.date_of_leaving, employement.date_of_joining) %></td>
-            <td class="exit_comments"><%= employement.exit_comments %></td>
-            <td class="rating"><%= employement.rating %></td>
+           <td class="employer"><%= employement.employee.pancard %></td>
+           <td class="employer"><%= employement.employee.date_of_birth %></td>
+           <td class="employer"><%= employement.employer.name %></td>
+           <td class="duration"><%= distance_of_time_in_words(employement.date_of_leaving, employement.date_of_joining) %></td>
+           <td class="employer"><%= employement.category.name %></td>
             <td class="data_actions">
               <a class="member_link view_link" href="/admin/employements/<%= employement.id %>">View</a>
-              <% if employement.status.nil? || employement.status.name == "New" %>
+              <% if employement.status.nil? || employement.status.name == "Created" %>
               <a class="member_link edit_link" href="/admin/employements/<%= employement.id %>/edit">Edit</a>
               <% end %>
               <!--a rel="nofollow" data-method="delete" data-confirm="Are you sure you want to delete this?"
@@ -45,7 +47,7 @@
               </a></td-->
             <td class="status"><%= employement.status && employement.status.name %></td>
             <td class="business_actions">
-             <% if employement.status.nil? || employement.status.name == "New" %>
+             <% if (employement.status.nil? || employement.status.name == "Created") && current_user.role.name != "manager" %>
                  <a href="/admin/employements/<%= employement.id %>/submit" class="member_link publish_link">Submit</a>
              <% end %>
              <% if current_user.role.name == "manager" && (employement.status != nil && employement.status.name == "Submitted") %>
@@ -55,10 +57,10 @@
                  <a href="/admin/employements/<%= employement.id %>/publish" class="member_link publish_link">Publish</a>
              <% end %>
             </td>
-           <% if current_user.role.name == "manager" || (current_user.role.name == "admin") %>
+            <% if current_user.role.name == "manager" || (current_user.role.name == "admin") %>
                <td class="created_by"><%= employement.creator && employement.creator.name %></a></td>
-           <% end %>
-           <td class="is_published"><%= employement.is_published? ? "Yes" : "No" %></td>
+               <td class="is_published"><%= employement.is_published? ? "Yes" : "No" %></td>
+            <% end %>
          </tr>
      <% end %>
     </tbody>

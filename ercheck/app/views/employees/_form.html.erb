@@ -46,7 +46,7 @@
 
         <!-- #need this to be provide hidden creator value   -->
         <%= f.input :created_by , :as => :hidden , :value => current_user.id %>
-        <%= f.input :status_id , :as => :hidden , :value => Status.find_by_name("New").id %>
+        <%= f.input :status_id , :as => :hidden , :value => Status.find_by_name("Created").id %>
         <%= f.input :is_published , :as => :hidden , :value => 0 %>
 
     <% end %>

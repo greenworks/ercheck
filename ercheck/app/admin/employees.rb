@@ -16,7 +16,7 @@ ActiveAdmin.register Employee do
     @employee = Employee.find(params[:id])
     @employee.update_attribute(:is_published,1)
     #refresh
-    redirect_to admin_my_employees_path , :notice => "Employee record was published !"
+    redirect_to admin_all_employees_path , :notice => "Employee record was published !"
   end
 
   member_action :approve do
@@ -24,33 +24,51 @@ ActiveAdmin.register Employee do
     @employee.update_attribute(:status_id,Status.find_by_name("Approved").id)
     @employee.update_attribute(:approved_by,current_user.id)
     #refresh
-    redirect_to admin_my_employees_path, :notice => "Employee record was approved !"
+    redirect_to admin_all_employees_path, :notice => "Employee record was approved !"
   end
 
   member_action :submit do
     @employee = Employee.find(params[:id])
     @employee.update_attribute(:status_id,Status.find_by_name("Submitted").id)
     #refresh
-    redirect_to admin_my_employees_path, :notice => "Employee record was submitted !"
+    redirect_to admin_all_employees_path, :notice => "Employee record was submitted !"
   end
 
   member_action :create_employment do
     @employee = Employee.find(params[:id])
     @employee.update_attribute(:status_id,Status.find_by_name("Submitted").id)
     #refresh
-    redirect_to admin_my_employees_path, :notice => "Employment record was created!"
+    redirect_to admin_all_employees_path, :notice => "Employment record was created!"
   end
 
   action_item :only => :show do
-    link_to '<< My Employees',admin_my_employees_path
+    link_to '<< My Employees',admin_all_employees_path
   end
 
   action_item :only => :show do
     @employee = Employee.find(employee)
-    if @employee.status.name == "New"
+    if @employee.employements.count == 0 && current_user.role.name != "manager"
       link_to 'Edit Employee', [:edit, :admin, employee]
     else
-      link_to 'View Employments', "admin_my_employees_path" #admin_search_employment
+      nil
+    end
+  end
+
+  action_item :only => :show do
+    if current_user.role.name != "manager"
+      link_to 'Add Employee', new_admin_employee_path
+    else
+      nil
+    end
+  end
+
+
+
+  action_item :only => :show do
+    if current_user.role.name != "manager"
+      link_to 'Create Employment Record', new_admin_employement_path(:employee => employee)
+    else
+      nil
     end
   end
 
@@ -61,25 +79,16 @@ ActiveAdmin.register Employee do
   end
 =end
 
-  action_item :only => :show do
-    link_to 'Add Employee',new_admin_employee_path
-  end
-
-  action_item :only => :show do
-    #admin/employements/new?employee=32
-    #link_to 'Create Employment Record', "/admin/employements/new?employee=32"
-    link_to 'Create Employment Record', new_admin_employement_path(:employee => employee)
-    #link_to('employements',"/employements/new?id=" & employee.id )
-  end
-
   controller do
     def new
       if params[:pancard]
         @employee = Employee.find_or_create_by_pancard(params[:pancard]) # search_by_pancard(params[:pancard])
-        #redirect_to edit_admin_employee_path(:employee => @employee), :notice => "Existing Employee was found!"
+        if @employee.employements && @employee.employements.count >= 1 && @employee.employements.first.status.name != "Created"
+          redirect_to admin_employee_path(@employee) , :notice => "Employment records exists for Employee with this PAN!"
+        end
       elsif params.nil?
         @employee=Employee.new
-        redirect_to self , :notice => "Employee with this PAN not found! Create New."
+          redirect_to self , :notice => "Employee with this PAN not found! Create New."
       end
     end
   end
@@ -101,7 +110,7 @@ ActiveAdmin.register Employee do
     column "Date of Birth" , :date_of_birth
 
     column "University"  do |employee|
-      employee.university.name
+      employee.university && employee.university.name
     end
 
     column "Employements" do |employee|
@@ -150,6 +159,9 @@ ActiveAdmin.register Employee do
     attributes_table do
       row :name
       row :surname
+      row "Employment(s)" do |employee|
+        render "/employements/employement", :employements=> employee.employements
+      end
       row :mother_name
       row :father_name
       row :date_of_birth
@@ -189,9 +201,6 @@ ActiveAdmin.register Employee do
         row :updated_at
       end
 
-      row "Employments" do |employee|
-        render "/employements/employement", :employements=> employee.employements
-      end
       row "Status" do |employee|
         employee.status && employee.status.name
       end

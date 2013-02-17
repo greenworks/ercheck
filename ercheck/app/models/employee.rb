@@ -19,7 +19,7 @@ class Employee < ActiveRecord::Base
     :surname, :mother_name, :father_name, :string, :metric_passing_year, \
     :highest_qualification_id, :highest_qualification_passing_year, :mobile, :res_landline
 
-    validates_presence_of  :date_of_birth, :name, :pancard,  :university_id ,:ssc_marksheet_code, \
+    validates_presence_of  :date_of_birth, :name, :pancard,:ssc_marksheet_code, \
     :metric_passing_year, :board_id
 
     validates :name, :length => { :in => 3..50, :message => "At least 3 characters expected in name" }
@@ -30,7 +30,7 @@ class Employee < ActiveRecord::Base
 
     validates :date_of_birth, :timeliness => {:on_or_before => lambda { Date.current }, :type => :date}
     #validates :metric_passing_year, :numericality => { :greater_than_or_equal_to => :date_of_birth }
-    validates :highest_qualification_passing_year, :numericality => { :greater_than_or_equal_to => :metric_passing_year}
+    validates :highest_qualification_passing_year, :numericality => { :greater_than_or_equal_to => :metric_passing_year}, :allow_nil => true
 
     validates :pancard, :length => { :is => 10}
     validates :pancard, :uniqueness => {:case_sensitive => false,:message => "Employee already exists with this PAN ! "}
@@ -113,9 +113,9 @@ class Employee < ActiveRecord::Base
   end
 =end
 
-    def self.search_by_marksheet(marksheet)
-      if marksheet
-        where('ssc_marksheet_code =?', "#{marksheet}")
+    def self.search_by_marksheet(ssc_marksheet_code,board,metric_passing_year)
+      if ssc_marksheet_code || metric_passing_year  || board
+        where('ssc_marksheet_code =? AND metric_passing_year =?', "#{ssc_marksheet_code}", "#{metric_passing_year}")
         #where('ssc_marksheet_code =?', "#{marksheet}", "#{date_of_birth}")
       end
     end

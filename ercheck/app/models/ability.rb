@@ -15,10 +15,12 @@ class Ability
          cannot :manage, :Employer
          can :manage, Employee , :creator.in?(User.search_reporting_users(user).collect(&:id))
          can :manage, Employement , :creator.in?(User.search_reporting_users(user).collect(&:id))
+         cannot :index, Employee
        elsif user.role.name == "user"
          can :manage, Employee , :creator.in?(User.search_reporting_users(user).collect(&:id))
          can :manage, Employement , :creator.in?(User.search_reporting_users(user).collect(&:id))
          cannot :manage, :Employer
+         cannot :index, Employee
        end
 
     # The first argument to `can` is the action you are giving the user permission to do.

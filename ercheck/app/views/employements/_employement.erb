@@ -1,4 +1,4 @@
 <% employements.each do |employement| %>
-  - <a style="text-decoration: none" href="/admin/employements/<%= employement.id %>"><%= employement.employer.name %></a>
+  - <a style="text-decoration: underline;" href="/admin/employements/<%= employement.id %>"><%= employement.employer.name %></a>
 
 <% end %>

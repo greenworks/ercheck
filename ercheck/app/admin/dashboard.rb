@@ -4,11 +4,16 @@ ActiveAdmin.register_page "Dashboard" do
 
   content :title => proc{   I18n.t("active_admin.dashboard")  + " for "  + (current_user.role.name).capitalize  + " of " + (current_user.employer.name)} do
 
-   render "employees/search"
+   #render "employees/search"
 
     br
 
     if current_user.role && current_user.role.name == "user"
+
+=begin
+      action_item do
+      end
+=end
 
       panel "Recently Created Employees records"  do
         table_for Employee.where("created_by = ? ",current_user ).order("created_at desc").limit(5) do
@@ -34,24 +39,47 @@ ActiveAdmin.register_page "Dashboard" do
           end
 
         end
-        strong { link_to "View All Employees created by you", admin_my_employees_path }
+        strong { link_to "View All Employees created by you", admin_all_employees_path }
+
+        br
+
+        strong {link_to 'Add New Employee', new_admin_employee_path}
       end
 
     end
-=begin
 
    if current_user.role && current_user.role.name == "manager"
-     panel "User wise summary for records created"   do
-       table_for Employement.all(:select  => "created_by as creator, count(employee_id) as employees", :group => "created_by") do
-         column "creator" do |created_by|
-           User.find(created_by).name
+
+
+     panel "User wise summary for employment records"   do
+       table_for Employement.search_accessible_employments(current_user).all(:select  => "created_by , status_id , count(id) as records", :group => "created_by, status_id" ) do \
+       #:having => ( " created_by in #{user_list }") ) do
+#         table_for Employement.all(:select  => "created_by , status_id , count(id) as records", :group => "created_by, status_id" , :having => ( @employement.created_by.in?User.search_reporting_users(current_user.id).collect(&:id) ) ) do
+
+         column "User" do |employement|
+           User.find(employement.created_by).name
          end
-         column :employees
+
+         column "Activity Count" do |employement|
+            pluralize(employement.records, "record")
+         end
+
+         column "Status" do |employement|
+           employement.status && employement.status.name
+         end
+
+
        end
+
+       strong { link_to "Search Employee", "/admin/search_employee" }
+
+       br
+
+       strong { link_to "View All Employees created by team", admin_all_employees_path }
+
      end
-     strong { link_to "View All Employments", admin_my_employments_path }
+
    end
-=end
 
 
    if current_user.role && current_user.role.name == "admin"
@@ -61,7 +89,7 @@ ActiveAdmin.register_page "Dashboard" do
         column :employees
       end
      end
-     strong { link_to "View All Employments", admin_my_employments_path }
+     strong { link_to "View All Employments", admin_all_employees_path }
    end
 
   end

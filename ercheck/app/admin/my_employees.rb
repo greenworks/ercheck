@@ -1,13 +1,15 @@
-ActiveAdmin.register_page "My Employees" do
+ActiveAdmin.register_page "All Employees" do
 
 
-  menu :parent => "My Account", :if => proc{ current_user.role.name!="admin" }
+  menu :parent => "Employee Records", :if => proc{ current_user.role.name!="admin" }
 
   #scope :published
 
   content do
     params[:status]="All"
-    render "/employees/employees"
+    #render "/employees/employees"
+    render "/employements/index"
+
   end
 
   action_item do

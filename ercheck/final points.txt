@@ -1,0 +1,29 @@
+unrequired validation for hinghest qualification & year
+
+search need combi of year and board with marksheet
+
+after submit edit not needed
+
+created employment not required for manger
+
+manager dashboard showing other users data too
+
+print/pdf option to search results
+
+manager to have reject action for record back to created status
+
+
+==================                                             
+When we click on enquiry its menu not indicating its stay on home.
+
+Read more about the system is not working on Login Page and register page.
+
+My acount is not working afetr login when we create any user.
+
+Footer- h is small in home
+
+Report employee is not working on footer.
+
+Footer copyright year is 2012
+
+Many pages are under construction
