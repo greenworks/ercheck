@@ -1,0 +1,49 @@
+Dear Swapnil, 
+
+Sorry for not responding promptly as I was travelling for last few days. I have been testing our project day in day out.. it has taken the desired shape. However followings are my observations for corrections: 
+
+USER:
+
+Regrettable check: When selecting “NO” it is showing as it can’t be blank… in result it is remarked as true. =========> done
+Remove the check on Last PMS:         ===> done
+PMS rating: put master filters just like qualification, designation ===> done
+Remove the check on CTC on hire          ===>
+New employee data:  edit option for Mobile phone, residential landline, and highest qualification and year    ===> can't be handled this attributes in employee from latest employment record	
+Remove checks for 10th seat number & matriculation passing year ==> done
+Qualification year and DOB check: DOB should not be less than the qualification year ==> pending
+
+Manager:
+Once the record is submitted to manager and if manger finds some corrections he should reopen the record for user to edit it. 
+==> securtity issue in rejecting records. WIP 
+
+Search:
+Combination of following three is must i.e. (SSC mark sheet number+ year+ Board)  ==> done
+
+Password:
+Facility of changing the password for manager and user is required as passwords are common and can be misused by any person who is aware of the login.
+
+
+Dash board should contain
+ 
+1.      Employer Status: Submitted and approved numbers separately
+ <swapnil, please complete>   ==> WIP -- will active once reject functionality in manager is enabled correctly.
+2.      Inquiry Status: numbers
+ <swapnil, please complete> 
+ 
+Masters/Employer: add Industry in it, admin will map the organisation under industry while creating employer. 
+ <swapnil, please complete>        ===> WIP
+
+<Hi Hemant, the above changes seems simple but from developers point of view, they are very time consuming. One need to update db / controllers /views for any above item change. Please try to make these sugegstions as early as possible.> 
+ 
+Report Filters: separate page under admin role to create, view and print reports such as
+Monthwise, from to to periodwise,  orgnaistionwise, monthwise orgnaistionwise, monthwise Industrywise:-  reasinwise...... unversitywise.... tenuurewise... etc etc... 
+<We have discussed on CSV/Excel export only at beginning and its part of every screen, Swapnil will guide you. We cant invest lot of time in any other reports. For complex reports, Swapnil, please give an estimation but we take them after the beta launch. > 
+ 
+ 
+Bulk Upload  facility: As we have discussed and agreed in the past, bulk upload facility to be provided to admin. 
+<Yes Hemant, we agreed on basic import (for administrator), please describe the logic to swapnil and swapnil will develop it.>
+ 
+ 
+Password Reset facility
+<As discussed, this is part of our system, we have developed full user management system.>
+ WIP ==> due to security leak reasons. 

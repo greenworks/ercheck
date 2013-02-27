@@ -5,12 +5,43 @@
     <ignored path="ercheck.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/employement.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1360955878951" ignored="false" />
-    <file path="/employees.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1360955619790" ignored="false" />
-    <file path="/search_employee.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1360952008905" ignored="false" />
-    <file path="/_search.html.erb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1360954905804" ignored="false" />
-    <file path="/dashboard.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1360957941602" ignored="false" />
-    <file path="/employee.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1360951515621" ignored="false" />
-    <file path="/Dummy.txt" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1360950667861" ignored="false" />
+    <file path="/employees.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361995757870" ignored="false" />
+    <file path="/search_employee.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361997811595" ignored="false" />
+    <file path="/_search.html.erb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361994748585" ignored="false" />
+    <file path="/dashboard.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361331195494" ignored="false" />
+    <file path="/employee.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361995470367" ignored="false" />
+    <file path="/Dummy.txt" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361195958411" ignored="false" />
+    <file path="$PROJECT_DIR$/../../railsadmanager/app/admin/ad_frequencies.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361331220386" ignored="false" />
+    <file path="$PROJECT_DIR$/../../railsadmanager/app/admin/ad_rates.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361331226816" ignored="false" />
+    <file path="$PROJECT_DIR$/../../railsadmanager/app/admin/ad_spaces.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361331230913" ignored="false" />
+    <file path="$PROJECT_DIR$/../../railsadmanager/app/admin/admin_user.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361331236340" ignored="false" />
+    <file path="$PROJECT_DIR$/../../railsadmanager/app/admin/ads.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361329504003" ignored="false" />
+    <file path="$PROJECT_DIR$/../../railsadmanager/app/admin/roles.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361331250274" ignored="false" />
+    <file path="$PROJECT_DIR$/../../railsadmanager/app/admin/users.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361331023376" ignored="false" />
+    <file path="$PROJECT_DIR$/../../railsadmanager/app/models/user.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361332804358" ignored="false" />
+    <file path="/user.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361329324777" ignored="false" />
+    <file path="$PROJECT_DIR$/../../railsadmanager/app/models/role.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361329347832" ignored="false" />
+    <file path="/role.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361329346406" ignored="false" />
+    <file path="$PROJECT_DIR$/../../railsadmanager/app/admin/dashboard.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361331281193" ignored="false" />
+    <file path="$PROJECT_DIR$/../../railsadmanager/db/migrate/20130220031340_addcolumnstotables.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361330189857" ignored="false" />
+    <file path="/20130220031340_addcolumnstotables.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361330094131" ignored="false" />
+    <file path="$PROJECT_DIR$/../../railsadmanager/db/schema.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361333751214" ignored="false" />
+    <file path="/users.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361331023376" ignored="false" />
+    <file path="/ad_frequencies.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361331220386" ignored="false" />
+    <file path="/ad_rates.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361331226816" ignored="false" />
+    <file path="/ad_spaces.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361331230913" ignored="false" />
+    <file path="/admin_user.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361331236340" ignored="false" />
+    <file path="/roles.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361331250274" ignored="false" />
+    <file path="$PROJECT_DIR$/../../railsadmanager/config/initializers/active_admin.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361332281374" ignored="false" />
+    <file path="$PROJECT_DIR$/../../railsadmanager/config/initializers/devise.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361332847925" ignored="false" />
+    <file path="$PROJECT_DIR$/../../railsadmanager/config/routes.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361332930998" ignored="false" />
+    <file path="/routes.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361332930998" ignored="false" />
+    <file path="$PROJECT_DIR$/../../railsadmanager/db/migrate/20130220035546_add_is_admin_to_users.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361332592008" ignored="false" />
+    <file path="/20130220035546_add_is_admin_to_users.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361332588356" ignored="false" />
+    <file path="$PROJECT_DIR$/../../railsadmanager/db/migrate/20130220033541_add_role_id_to_admin_users.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361333419852" ignored="false" />
+    <file path="/20130220033541_add_role_id_to_admin_users.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361333279641" ignored="false" />
+    <file path="$PROJECT_DIR$/../../railsadmanager/db/migrate/20130220041206_add_role_id_to_admin_users.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361333649963" ignored="false" />
+    <file path="/fragment.rb" changelist="9221c1b5-125d-48c5-9d88-0d6b26f2cc09" time="1361997727059" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,76 +65,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="employees.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/admin/employees.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="121" column="28" selection-start="3526" selection-end="3526" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_search.html.erb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/employees/_search.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="0" selection-start="1633" selection-end="1633" vertical-scroll-proportion="0.5123153">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search_employee.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="search_employee.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/admin/search_employee.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="7" selection-start="106" selection-end="106" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="my_employements.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/admin/my_employements.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="employements.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/admin/employements.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="44" selection-start="780" selection-end="780" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboard.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/admin/dashboard.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="56" selection-start="1558" selection-end="1558" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#81#113#1" expanded="false" />
-                <element signature="e#145#177#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="employement.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/employement.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="42" selection-start="4432" selection-end="4432" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/employees/_form.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="14" selection-start="2220" selection-end="2234" vertical-scroll-proportion="-4.580645">
+            <state line="41" column="71" selection-start="1273" selection-end="1273" vertical-scroll-proportion="0.4747191">
               <folding />
             </state>
           </provider>
@@ -112,7 +77,7 @@
       <file leaf-file-name="employee.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/employee.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="117" column="41" selection-start="4661" selection-end="4778" vertical-scroll-proportion="0.0">
+            <state line="1" column="0" selection-start="36" selection-end="36" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -131,7 +96,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/employements/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/employements/_employement.erb" />
         <option value="$PROJECT_DIR$/app/admin/my_employees.rb" />
         <option value="$PROJECT_DIR$/app/admin/all_employees.rb" />
@@ -141,12 +105,13 @@
         <option value="$PROJECT_DIR$/app/admin/employees_submitted.rb" />
         <option value="$PROJECT_DIR$/app/admin/my_employements.rb" />
         <option value="$PROJECT_DIR$/app/views/employements/_index.html.erb" />
-        <option value="$PROJECT_DIR$/app/models/employement.rb" />
         <option value="$PROJECT_DIR$/app/admin/dashboard.rb" />
+        <option value="$PROJECT_DIR$/app/views/employements/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/employement.rb" />
+        <option value="$PROJECT_DIR$/app/views/employees/_search.html.erb" />
+        <option value="$PROJECT_DIR$/app/admin/employees.rb" />
         <option value="$PROJECT_DIR$/app/models/employee.rb" />
         <option value="$PROJECT_DIR$/app/admin/search_employee.rb" />
-        <option value="$PROJECT_DIR$/app/admin/employees.rb" />
-        <option value="$PROJECT_DIR$/app/views/employees/_search.html.erb" />
       </list>
     </option>
   </component>
@@ -160,8 +125,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-11" />
     <option name="y" value="-2" />
-    <option name="width" value="1452" />
-    <option name="height" value="876" />
+    <option name="width" value="1378" />
+    <option name="height" value="780" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -205,79 +170,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Problems" />
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="ERCheck">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="ERCheck">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="All">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="ERCheck">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="ERCheck">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="ERCheck">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="admin">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -306,25 +198,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ercheck" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ercheck" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="environments" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -342,43 +216,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ercheck" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ercheck" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="employees" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ercheck" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ercheck" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -476,13 +314,86 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="ERCheck">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="ERCheck">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="All">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="ERCheck">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="ERCheck">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="ERCheck">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="admin">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="org.jetbrains.plugins.ruby.settings.RubyIdeSdkConfigurable" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="last_opened_file_path" value="C:/Ruby193/bin/ruby.exe" />
@@ -851,18 +762,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-2" width="1452" height="876" extended-state="0" />
-    <editor active="true" />
+    <frame x="-11" y="-2" width="1378" height="780" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294893" sideWeight="0.4969605" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32837838" sideWeight="0.482066" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23170732" sideWeight="0.6716216" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36944047" sideWeight="0.35135135" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25179857" sideWeight="0.6689189" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41021416" sideWeight="0.48784193" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2553802" sideWeight="0.33243242" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26823708" sideWeight="0.3477589" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40958267" sideWeight="0.48784193" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26823708" sideWeight="0.23029366" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41021416" sideWeight="0.5068389" order="7" side_tool="true" content_ui="tabs" x="23" y="308" width="1394" height="243" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3310811" sideWeight="0.46048632" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33038348" sideWeight="0.46048632" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -909,6 +820,9 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="false" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
     <option name="LAST_COMMIT_MESSAGE" />
@@ -926,120 +840,136 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/admin/search_employee.rb</url>
+          <line>36</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/admin/search_employee.rb</url>
+          <line>10</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/admin/search_employee.rb</url>
+          <line>38</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="7" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/board.rb">
+    <entry file="file://C:/Ruby193/lib/ruby/gems/1.9.1/gems/activesupport-3.2.3/lib/active_support/core_ext/string/inflections.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="122" column="0" selection-start="4660" selection-end="4660" vertical-scroll-proportion="0.3313433">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/ability.rb">
+    <entry file="file://C:/Ruby193/lib/ruby/gems/1.9.1/gems/activesupport-3.2.3/lib/active_support/core_ext/string/output_safety.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="93" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0">
+        <state line="184" column="0" selection-start="4764" selection-end="4764" vertical-scroll-proportion="0.5539359">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/application.rb">
+    <entry file="file://C:/Ruby193/lib/ruby/gems/1.9.1/gems/activesupport-3.2.3/lib/active_support/core_ext/object/blank.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="27" selection-start="380" selection-end="380" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="11" selection-start="746" selection-end="746" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/dashboard.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="56" selection-start="1558" selection-end="1558" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#81#113#1" expanded="false" />
-            <element signature="e#145#177#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/employement.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="42" selection-start="4432" selection-end="4432" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/my_employements.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/employers.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/employee.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="41" selection-start="4661" selection-end="4778" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/employees.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="28" selection-start="3526" selection-end="3526" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/search_employee.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="7" selection-start="106" selection-end="106" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/employements.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="44" selection-start="780" selection-end="780" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/employees/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="14" selection-start="2220" selection-end="2234" vertical-scroll-proportion="-4.580645">
+        <state line="104" column="0" selection-start="2213" selection-end="2213" vertical-scroll-proportion="0.33146068">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/employees/_search.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="1633" selection-end="1633" vertical-scroll-proportion="0.5123153">
+        <state line="13" column="50" selection-start="666" selection-end="666" vertical-scroll-proportion="-0.65384614">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Ruby193/lib/ruby/gems/1.9.1/gems/arbre-1.0.1/lib/arbre/context.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="0" selection-start="2372" selection-end="2372" vertical-scroll-proportion="0.31179774">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Ruby193/lib/ruby/gems/1.9.1/gems/activesupport-3.2.3/lib/active_support/dependencies.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="243" column="0" selection-start="8957" selection-end="8957" vertical-scroll-proportion="0.33146068">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Ruby193/lib/ruby/gems/1.9.1/gems/activeadmin-0.5.1/lib/active_admin/helpers/settings.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="0" selection-start="1049" selection-end="1049" vertical-scroll-proportion="0.33146068">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Ruby193/lib/ruby/gems/1.9.1/gems/activeadmin-0.5.1/lib/active_admin/application.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="214" column="0" selection-start="7175" selection-end="7175" vertical-scroll-proportion="0.33146068">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="202" selection-end="202" vertical-scroll-proportion="0.33146068">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Ruby193/lib/ruby/gems/1.9.1/gems/rack-1.4.1/lib/rack/session/abstract/id.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="0" selection-start="1369" selection-end="1369" vertical-scroll-proportion="0.31179774">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/flash.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="241" column="0" selection-start="7026" selection-end="7026" vertical-scroll-proportion="0.31179774">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/employee.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="36" selection-end="36" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Ruby193/lib/ruby/gems/1.9.1/gems/arbre-1.0.1/lib/arbre/element/builder_methods.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="0" selection-start="1005" selection-end="1005" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Ruby193/lib/ruby/gems/1.9.1/gems/arbre-1.0.1/lib/arbre/element.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="174" column="0" selection-start="3761" selection-end="3761" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Ruby193/lib/ruby/gems/1.9.1/gems/activesupport-3.2.3/lib/active_support/hash_with_indifferent_access.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="805" selection-end="805" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/admin/search_employee.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="71" selection-start="1273" selection-end="1273" vertical-scroll-proportion="0.4747191">
           <folding />
         </state>
       </provider>

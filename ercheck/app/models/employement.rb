@@ -30,8 +30,8 @@ class Employement < ActiveRecord::Base
   :before_previous_pms_year_performance_rating, :ctc_on_hire, :ctc_on_severance, :notice_period_served_id, \
   :notice_period_paid_id, :full_n_final_status_id, :settlement_pending_side_id
 
-  validates_presence_of  :date_of_joining, :date_of_leaving, :severance_id, :reason_id, :regret_flag, :rehire_flag_id, :conduct_id, :external_matter_history_id , :category_id, \
-  :last_pms_performance_rating, :ctc_on_hire, :ctc_on_severance, :notice_period_served_id, :notice_period_paid_id, \
+  validates_presence_of  :date_of_joining, :date_of_leaving, :severance_id, :reason_id, :conduct_id, :external_matter_history_id , :category_id, \
+  :ctc_on_severance, :notice_period_served_id, :notice_period_paid_id, \
   :full_n_final_status_id, :employee_id, :employer_id
 
   #validates :exit_comments, :length => { :in => 10..500}

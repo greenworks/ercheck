@@ -34,14 +34,20 @@ ActiveAdmin.register_page "Search Employee" do
             end
           end
 
-        elsif params[:ssc_marksheet_code]
-          @employee = Employee.search_by_marksheet(params[:ssc_marksheet_code],1,params[:metric_passing_year])
+        elsif (params[:ssc_marksheet_code] && params[:board] && params[:metric_passing_year])
+
+          board_id = params[:board].to_a.at(0).to_s.to_i
+
+
+          metric_passing_year = params[:metric_passing_year].to_a.at(0).to_s.to_i
+
+          @employee = Employee.search_by_marksheet(params[:ssc_marksheet_code],board_id,metric_passing_year)
 
           if @employee.nil?
             h4 "No employee found"
           else
             panel "Employees records"  do
-              table_for Employee.search_by_marksheet(params[:ssc_marksheet_code],1,params[:metric_passing_year]) do
+              table_for Employee.search_by_marksheet(params[:ssc_marksheet_code],board_id,metric_passing_year) do
                 column :name do |employee|
                   link_to employee.name, [:admin, employee]
                 end

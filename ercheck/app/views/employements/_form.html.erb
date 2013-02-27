@@ -44,9 +44,14 @@
         <%= f.input :external_matter_history %>
         <%= f.input :history_impact %>
         <%= f.input :category %>
-        <%= f.input :last_pms_performance_rating %>
-        <%= f.input :previous_pms_year_performance_rating %>
-        <%= f.input :before_previous_pms_year_performance_rating %>
+
+        <%= f.input :last_pms_performance_rating, :as => :select ,:label => "last_pms_performance_rating", :collection => Range.new(1, 10)  %>
+
+        <%= f.input :previous_pms_year_performance_rating, :as => :select ,:label => "previous_pms_year_performance_rating", :collection => Range.new(1, 10)  %>
+
+
+        <%= f.input :before_previous_pms_year_performance_rating, :as => :select ,:label => "before_previous_pms_year_performance_rating", :collection => Range.new(1, 10)  %>
+
         <%= f.input :ctc_on_hire %>
         <%= f.input :ctc_on_severance %>
         <%= f.input :notice_period_served %>

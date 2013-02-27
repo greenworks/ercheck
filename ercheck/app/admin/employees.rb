@@ -167,13 +167,11 @@ ActiveAdmin.register Employee do
       row :date_of_birth
       row :pancard
       row :metric_passing_year
-      row "Metric Board" do |employee|
+      row "SSC Board" do |employee|
         employee.board && employee.board.name
       end
       row :ssc_marksheet_code
-      row "Board" do |employee|
-        employee.board && employee.board.name
-      end
+
       row :highest_qualification do |employee|
         employee.highest_qualification && employee.highest_qualification.name
       end

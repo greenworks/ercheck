@@ -20,7 +20,7 @@ class Employee < ActiveRecord::Base
     :highest_qualification_id, :highest_qualification_passing_year, :mobile, :res_landline
 
     validates_presence_of  :date_of_birth, :name, :pancard,:ssc_marksheet_code, \
-    :metric_passing_year, :board_id
+    :board_id
 
     validates :name, :length => { :in => 3..50, :message => "At least 3 characters expected in name" }
     validates :name, :format => { :with => /\A[a-zA-Z\s]+\z/,:message => "Only letters allowed" }
@@ -34,7 +34,7 @@ class Employee < ActiveRecord::Base
 
     validates :pancard, :length => { :is => 10}
     validates :pancard, :uniqueness => {:case_sensitive => false,:message => "Employee already exists with this PAN ! "}
-    validates :ssc_marksheet_code, :uniqueness => {:scope => :board_id ,:case_sensitive => false,:message => "Employee already exists with this 10th Seat number for given board ! "}
+    validates :ssc_marksheet_code, :uniqueness => {:scope => :board_id ,:case_sensitive => false,:message => "Employee already exists with this 10th Seat number for given board ! "} , :allow_nil => true
 
 =begin
     validate :ensure_approved_before_publish,
@@ -115,7 +115,7 @@ class Employee < ActiveRecord::Base
 
     def self.search_by_marksheet(ssc_marksheet_code,board,metric_passing_year)
       if ssc_marksheet_code || metric_passing_year  || board
-        where('ssc_marksheet_code =? AND metric_passing_year =?', "#{ssc_marksheet_code}", "#{metric_passing_year}")
+        where('ssc_marksheet_code =? AND board_id =? AND metric_passing_year =?', "#{ssc_marksheet_code}","#{board}", "#{metric_passing_year}")
         #where('ssc_marksheet_code =?', "#{marksheet}", "#{date_of_birth}")
       end
     end
