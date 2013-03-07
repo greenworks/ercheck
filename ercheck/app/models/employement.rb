@@ -18,6 +18,8 @@ class Employement < ActiveRecord::Base
   belongs_to :designation
   belongs_to :function
   belongs_to :department
+  belongs_to :highest_qualification
+
 
   belongs_to :approver, :class_name => "User",   :foreign_key => "approved_by"
   belongs_to :creator,  :class_name => "User",   :foreign_key => "created_by"
@@ -28,7 +30,8 @@ class Employement < ActiveRecord::Base
   :other_termination_discharge_reason, :regret_flag, :rehire_flag_id, :conduct_id, :external_matter_history_id, \
   :history_impact_id, :category_id, :last_pms_performance_rating, :previous_pms_year_performance_rating, \
   :before_previous_pms_year_performance_rating, :ctc_on_hire, :ctc_on_severance, :notice_period_served_id, \
-  :notice_period_paid_id, :full_n_final_status_id, :settlement_pending_side_id
+  :notice_period_paid_id, :full_n_final_status_id, :settlement_pending_side_id, :highest_qualification_id, \
+  :highest_qualification_year, :mobile, :landline
 
   validates_presence_of  :date_of_joining, :date_of_leaving, :severance_id, :reason_id, :conduct_id, :external_matter_history_id , :category_id, \
   :ctc_on_severance, :notice_period_served_id, :notice_period_paid_id, \
@@ -41,6 +44,9 @@ class Employement < ActiveRecord::Base
   validates :date_of_leaving , :date => { :on_or_after => :resignation_date, :message => 'Date of Leaving should be on/after Resignation only' }
   validates :resignation_date , :date => { :after => :date_of_joining, :message => 'Date of Resignation should be after Joining only' }
   validates :date_of_joining, :timeliness => {:on_or_before => lambda { Date.current }, :type => :date}
+  validates :highest_qualification_year ,:numericality=> { :greater_than_or_equal_to =>1900},:allow_blank => true
+  validates :landline ,:numericality=> { :greater_than_or_equal_to =>0},:allow_blank => true
+  validates :mobile ,:numericality=> { :greater_than_or_equal_to =>0},:allow_blank => true
 
   def self.search_by_employer(employer)
     if search
@@ -50,9 +56,19 @@ class Employement < ActiveRecord::Base
     end
   end
 
+
   def self.search_by_manager(manager)
     if manager
       where('created_by IN (?) or created_by =?', User.search_reporting_users(manager).collect(&:id),manager)
+    else
+      scoped
+    end
+  end
+
+
+  def self.search_by_status(status)
+    if status
+      where('status_id = (?) ', status)
     else
       scoped
     end

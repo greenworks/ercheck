@@ -46,6 +46,16 @@ ActiveAdmin.register Employement do
     redirect_to admin_my_employments_path, :notice => "Employment record was approved !"
   end
 
+
+  member_action :reject do
+    @employement = Employement.find(params[:id])
+    @employement.update_attribute(:status_id,Status.find_by_name("Rejected").id)
+    @employement.update_attribute(:approved_by,current_user.id)
+    #refresh
+    redirect_to admin_my_employments_path, :notice => "Employment record was rejected !"
+  end
+
+
   member_action :submit do
     @employement = Employement.find(params[:id])
     @employement.update_attribute(:status_id,Status.find_by_name("Submitted").id)
@@ -75,6 +85,7 @@ ActiveAdmin.register Employement do
     end
 
     column "Exit Comments", :exit_comments
+
     column "Rating", :rating
 
 =begin
@@ -110,6 +121,14 @@ ActiveAdmin.register Employement do
           end
 
           row :recorded_address
+          row :mobile
+          row :landline
+
+          row "highest_qualification" do |employement|
+            employement.highest_qualification && employement.highest_qualification.name
+          end
+
+          row :highest_qualification_year
 
           row :last_pms_performance_rating
           row :previous_pms_year_performance_rating
@@ -136,7 +155,6 @@ ActiveAdmin.register Employement do
           row :other_termination_discharge_reason
 
           row :regret_flag
-
 
           row "rehire_flag" do |employement|
             employement.rehire_flag && employement.rehire_flag.name

@@ -17,7 +17,7 @@
   <div class="section_contents">
     <form method="get" id="search_by_marksheet" class="filter_form" action="/admin/search_employee" accept-charset="UTF-8">
       <div class="search_form_field search_string">
-        MNB09991<label for="search" class="th">SSC  Mark sheet :</label> <input type="text" name="ssc_marksheet_code" id="ssc_marksheet_code" maxlength="10" /><br/>
+        <label for="search" class="th">SSC  Mark sheet :</label> <input type="text" name="ssc_marksheet_code" id="ssc_marksheet_code" maxlength="10" /><br/>
         <label for="search" class="th">SSC  Passing Year :</label><%=select :metric_passing_year ,nil, (1901..Time.now.year).to_a%>
         <% @boards = Board.all %>
         <br/>

@@ -12,13 +12,19 @@ class Ability
        if user.role.name == "admin"
          can :manage, :all
        elsif user.role.name == "manager"
-         cannot :manage, :Employer
          can :manage, Employee , :creator.in?(User.search_reporting_users(user).collect(&:id))
          can :manage, Employement , :creator.in?(User.search_reporting_users(user).collect(&:id))
+         can :manage, User do |user_rec|
+             user_rec.id == user.id
+         end
          cannot :index, Employee
+         cannot :manage, :Employer
        elsif user.role.name == "user"
          can :manage, Employee , :creator.in?(User.search_reporting_users(user).collect(&:id))
          can :manage, Employement , :creator.in?(User.search_reporting_users(user).collect(&:id))
+         can :manage, User do |user_rec|
+             user_rec.id == user.id
+         end
          cannot :manage, :Employer
          cannot :index, Employee
        end

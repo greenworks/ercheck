@@ -11,10 +11,14 @@ ActiveAdmin.register Employer do
 
     column "City", :city
 
+    column "Industry", :industry
+
     column "Employees" do |employer|
       employer.employements.count
     end
 
     default_actions
   end
+
+
 end

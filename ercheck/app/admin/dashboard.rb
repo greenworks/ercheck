@@ -4,16 +4,8 @@ ActiveAdmin.register_page "Dashboard" do
 
   content :title => proc{   I18n.t("active_admin.dashboard")  + " for "  + (current_user.role.name).capitalize  + " of " + (current_user.employer.name)} do
 
-   #render "employees/search"
-
-    br
 
     if current_user.role && current_user.role.name == "user"
-
-=begin
-      action_item do
-      end
-=end
 
       panel "Recently Created Employees records"  do
         table_for Employee.where("created_by = ? ",current_user ).order("created_at desc").limit(5) do
@@ -35,7 +27,10 @@ ActiveAdmin.register_page "Dashboard" do
           end
 
           column "Record Status" do |employee|
-            employee.status && employee.status.name
+            #employee.status && employee.status.name
+            @employement = Employement.where(" employee_id = ? and employer_id = ?", employee, current_user.employer_id)
+            @employement.first && @employement.first.status && @employement.first.status.name
+
           end
 
         end
@@ -83,14 +78,59 @@ ActiveAdmin.register_page "Dashboard" do
 
 
    if current_user.role && current_user.role.name == "admin"
+
+
      panel "Employer wise summary"   do
-      table_for Employement.all(:select  => "employer_id, count(employee_id) as employees", :group => "employer_id ") do
-        column :employer
-        column :employees
-      end
+       table_for Employer.all do
+         column :name
+         column "Created" do |employer|
+            Employement.search_by_status(1).where("employer_id = ? ", employer.id).count
+         end
+         column "Submitted" do |employer|
+           Employement.search_by_status(2).where("employer_id = ? ", employer.id).count
+         end
+         column "Rejected" do |employer|
+           Employement.search_by_status(4).where("employer_id = ? ", employer.id).count
+         end
+         column "Approved" do |employer|
+           Employement.search_by_status(3).where("employer_id = ? ", employer.id).count
+         end
+         column "Total" do |employer|
+           Employement.where("employer_id = ? ", employer.id).count
+         end
+       end
      end
-     strong { link_to "View All Employments", admin_all_employees_path }
+
+
+     panel "Recent Enquiries"  do
+       table_for Enquiry.order("created_at desc").limit(5) do
+
+         column :name do |enquiry|
+           link_to enquiry.name, [:admin, enquiry]
+         end
+         column :email
+         column :phone
+         column :company_name
+         column :name do |enquiry|
+           enquiry.message
+         end
+       end
+
+       strong { link_to "Total " +  pluralize(Enquiry.count, "enquiry") + " received" , admin_enquiries_path }
+
+     end
+
+
    end
+
+
+
+    panel "Password Management" do
+      div do
+        link_to "Change Password",   edit_admin_user_path(current_user)
+      end
+    end
+
 
   end
 

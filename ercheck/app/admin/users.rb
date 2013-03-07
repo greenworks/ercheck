@@ -1,10 +1,16 @@
 ActiveAdmin.register User do
+
   menu :parent => "Masters", :if => proc{ current_user.role.name=="admin" }
 
 
   action_item :only => :show  do
-    link_to "New User", "/admin/users/new"
+    if current_user.role.name=="admin"
+      link_to "New User", "/admin/users/new"
+    else
+      link_to "Password", "/admin/users/edit"
+    end
   end
+
 
 =begin
   member_action :reset_password do
@@ -33,11 +39,16 @@ ActiveAdmin.register User do
   form do |f|
     f.inputs "Details" do
       f.input :name
-      f.input :email
-      f.input :employer
-      f.input :role
-      f.input :manager
+      if current_user.role.name=="admin"
+
+            f.input :email
+
+          f.input :employer
+          f.input :role
+          f.input :manager
+        end
       f.input :password
+      f.input :password_confirmation
     end
     f.buttons
   end

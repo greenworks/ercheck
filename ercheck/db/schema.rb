@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130206221502) do
+ActiveRecord::Schema.define(:version => 20130307171233) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -125,6 +125,10 @@ ActiveRecord::Schema.define(:version => 20130206221502) do
     t.integer  "notice_period_paid_id"
     t.integer  "full_n_final_status_id"
     t.integer  "settlement_pending_side_id"
+    t.integer  "mobile"
+    t.integer  "landline"
+    t.integer  "highest_qualification_id"
+    t.integer  "highest_qualification_year"
   end
 
   create_table "employers", :force => true do |t|
@@ -134,6 +138,7 @@ ActiveRecord::Schema.define(:version => 20130206221502) do
     t.string   "city"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "industry_id"
   end
 
   create_table "enquiries", :force => true do |t|
@@ -174,6 +179,12 @@ ActiveRecord::Schema.define(:version => 20130206221502) do
   end
 
   create_table "history_impacts", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "industries", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
