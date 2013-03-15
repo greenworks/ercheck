@@ -101,7 +101,6 @@ ActiveAdmin.register_page "Dashboard" do
        end
      end
 
-
      panel "Recent Enquiries"  do
        table_for Enquiry.order("created_at desc").limit(5) do
 
