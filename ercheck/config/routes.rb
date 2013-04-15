@@ -1,4 +1,5 @@
 Ercheck::Application.routes.draw do
+
   resources :functions
 
   resources :departments
@@ -22,6 +23,8 @@ Ercheck::Application.routes.draw do
   resources :statuses
 
   resources :employees
+
+  resources :datafiles
 
   get "info/home"
 
@@ -48,6 +51,11 @@ Ercheck::Application.routes.draw do
   get "info/associate"
 
   get "info/access_error"
+
+  resources :employee_imports
+  resources :employees do
+    collection { post :import }
+  end
 
   devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end
 
@@ -107,4 +115,5 @@ Ercheck::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+
 end

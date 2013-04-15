@@ -7,8 +7,32 @@
 // For example, to change the sidebar width:
 // $sidebar-width: 242px;
 
+// Colors
+$primary-color: #5E6469 !default;
+$defaultprimary-color: #5E6469 !default;
+$secondary-color: #f0f0f0 !default;
+$text-color: #323537 !default;
+$link-color: #38678b !default;
+$section-header-text-color: #5E6469 !default;
+$current-menu-item-background: lighten($defaultprimary-color, 12%) !default;
+$hover-menu-item-background: lighten($defaultprimary-color, 12%) !default;
+$table-stripe-color: lighten($defaultprimary-color, 57%) !default;
+$table-selected-color: #d9e4ec !default;
+$error-color: #932419 !default;
+
+// Sizes
+$horizontal-page-margin: 30px !default;
+$sidebar-width: 270px !default;
+$cell-padding: 5px 10px 3px 10px !default;
+$cell-horizontal-padding: 12px !default;
+$section-padding: 15px !default;
+$text-input-horizontal-padding: 10px !default;
+
 // Active Admin's got SASS!
 @import "active_admin/mixins";
+
+
+
 @import "active_admin/base";
 
 // Overriding any non-variable SASS must be done after the fact.
@@ -27,3 +51,8 @@
 // .active_admin       applies to any Active Admin namespace
 // .admin_namespace    applies to the admin namespace (eg: /admin)
 // .other_namespace    applies to a custom namespace named other (eg: /other)
+
+// Variables used throughout Active Admin.
+// They can be overridden by prepending your own
+// to 'app/assets/stylesheets/active_admin.css.scss'.
+

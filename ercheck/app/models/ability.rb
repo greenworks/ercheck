@@ -18,14 +18,16 @@ class Ability
              user_rec.id == user.id
          end
          cannot :index, Employee
-         cannot :manage, :Employer
+         cannot :manage, Employer
+         cannot :manage, EmployeeImport
        elsif user.role.name == "user"
          can :manage, Employee , :creator.in?(User.search_reporting_users(user).collect(&:id))
          can :manage, Employement , :creator.in?(User.search_reporting_users(user).collect(&:id))
          can :manage, User do |user_rec|
              user_rec.id == user.id
          end
-         cannot :manage, :Employer
+         cannot :manage, Employer
+         cannot :manage, EmployeeImport
          cannot :index, Employee
        end
 

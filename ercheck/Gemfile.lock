@@ -54,6 +54,9 @@ GEM
       thor
     builder (3.0.4)
     cancan (1.6.8)
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -102,6 +105,7 @@ GEM
       polyamorous (~> 0.5.0)
     mime-types (1.19)
     multi_json (1.5.0)
+    nokogiri (1.5.9-x86-mingw32)
     orm_adapter (0.4.0)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
@@ -133,11 +137,19 @@ GEM
       json (~> 1.4)
     responders (0.9.3)
       railties (~> 3.1)
+    roo (1.11.2)
+      nokogiri
+      rubyzip
+      spreadsheet (> 0.6.4)
+    ruby-ole (1.2.11.6)
+    rubyzip (0.9.9)
     sass (3.2.3)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    spreadsheet (0.8.3)
+      ruby-ole (>= 1.0)
     sprockets (2.1.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -167,6 +179,7 @@ DEPENDENCIES
   activeadmin
   activeadmin-cancan
   cancan
+  carrierwave
   coffee-rails (~> 3.2.1)
   csv-mapper
   date_validator
@@ -176,6 +189,7 @@ DEPENDENCIES
   jquery_datepicker
   kaminari
   rails (= 3.2.3)
+  roo
   sass-rails (~> 3.2.3)
   sqlite3
   therubyracer

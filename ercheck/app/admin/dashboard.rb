@@ -119,6 +119,12 @@ ActiveAdmin.register_page "Dashboard" do
 
      end
 
+     panel "Data upload" do
+       div do
+         link_to "Import employees from CSV ", new_employee_import_path
+       end
+     end
+
 
    end
 
@@ -130,9 +136,6 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
 
-
-  end
-
 =begin
     div :class => "blank_slate_container", :id => "dashboard_default_message" do
       span :class => "blank_slate" do
@@ -142,25 +145,8 @@ ActiveAdmin.register_page "Dashboard" do
     end
 =end
 
-    # Here is an example of a simple dashboard with columns and panels.
-    #
-    # columns do
-    #   column do
-    #     panel "Recent Posts" do
-    #       ul do
-    #         Post.recent(5).map do |post|
-    #           li link_to(post.title, admin_post_path(post))
-    #         end
-    #       end
-    #     end
-    #   end
 
-    #   column do
-    #     panel "Info" do
-    #       para "Welcome to ActiveAdmin."
-    #     end
-    #   end
-    # end
-    # content
+
+  end
 
 end

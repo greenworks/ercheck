@@ -1,0 +1,90 @@
+<h1>Employee Import</h1>
+
+<p>A CSV file can be used to import records. The first row should be the column name. </p>
+
+
+<p>If an <strong>pancard</strong> is supplied it will update the matching record instead of creating a new one.</p>
+
+<%= form_for @employee_import do |f| %>
+  <% if @employee_import.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employee_import.errors.count, "error") %> prohibited this import from completing:</h2>
+      <ul>
+      <% @employee_import.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.file_field :file %>
+  </div>
+  <div class="buttons"><%= f.submit "Import" %></div>
+
+<% end %>
+
+
+
+<p> The following columns are allowed.</p>
+
+<ul>
+  <!--% Employee.columns.each do |column| % -->
+  <!--% if column.name.in? ["id", *Employee.accessible_attributes] % --
+      <!-- li>
+        <strong--><!--%= column.name % ></strong -->
+  <!--%= column.type.to_s.titleize %--> type
+  <!--/li-->
+  <!--% end %-->
+  <!--% end %-->
+  <li> <strong>name</strong> - String type</li>
+  <li> <strong>pancard</strong> - String type</li>
+  <li> <strong>date_of_birth</strong> - Date type</li>
+  <li> <strong>university_id</strong> - Integer type</li>
+  <li> <strong>ssc_marksheet_code</strong> - String type</li>
+  <li> <strong>surname</strong> - String type</li>
+  <li> <strong>mother_name</strong> - String type</li>
+  <li> <strong>father_name</strong> - String type</li>
+  <li> <strong>metric_passing_year</strong> - Integer type</li>
+  <li> <strong>board_id</strong> - Integer type</li>
+  <li> <strong>highest_qualification_id</strong> - String type</li>
+  <li> <strong>highest_qualification_passing_year</strong> - String type</li>
+  <li> <strong>mobile</strong> - Integer type</li>
+  <li> <strong>res_landline</strong> - String type</li>
+  <li> <strong>employer_code</strong> - String type </li>
+  <li> <strong>date_of_joining</strong> - Date type </li>
+  <li> <strong>date_of_leaving</strong> - Date type </li>
+  <li> <strong>exit_comments</strong> - Text type </li>
+  <li> <strong>rating</strong> - Integer type </li>
+  <li> <strong>employee_code</strong> - String type </li>
+  <li> <strong>resignation_date</strong> - Date type </li>
+  <li> <strong>designation_id</strong> - Integer type </li>
+  <li> <strong>department_id</strong> - Integer type </li>
+  <li> <strong>function_id</strong> - Integer type </li>
+  <li> <strong>recorded_address</strong> - String type </li>
+  <li> <strong>severance_id</strong> - Integer type </li>
+  <li> <strong>reason_id</strong> - Integer type </li>
+  <li> <strong>other_reason</strong> - Text type </li>
+  <li> <strong>termination_discharge_reason_id</strong> - Integer type </li>
+  <li> <strong>other_termination_discharge_reason</strong> - Text type </li>
+  <li> <strong>regret_flag</strong> - Boolean type </li>
+  <li> <strong>rehire_flag_id</strong> - Integer type </li>
+  <li> <strong>conduct_id</strong> - Integer type </li>
+  <li> <strong>external_matter_history_id</strong> - Integer type </li>
+  <li> <strong>history_impact_id</strong> - Integer type </li>
+  <li> <strong>category_id</strong> - Integer type </li>
+  <li> <strong>last_pms_performance_rating</strong> - Integer type </li>
+  <li> <strong>previous_pms_year_performance_rating</strong> - Integer type </li>
+  <li> <strong>before_previous_pms_year_performance_rating</strong> - Integer type </li>
+  <li> <strong>ctc_on_hire</strong> - Decimal type </li>
+  <li> <strong>ctc_on_severance</strong> - Decimal type </li>
+  <li> <strong>notice_period_served_id</strong> - Integer type </li>
+  <li> <strong>notice_period_paid_id</strong> - Integer type </li>
+  <li> <strong>full_n_final_status_id</strong> - Integer type </li>
+  <li> <strong>settlement_pending_side_id</strong> - Integer type </li>
+  <li> <strong>mobile</strong> - Integer type </li>
+  <li> <strong>landline</strong> - Integer type </li>
+  <li> <strong>highest_qualification_id</strong> - Integer type </li>
+  <li> <strong>highest_qualification_year</strong> - Integer type </li>
+
+</ul>

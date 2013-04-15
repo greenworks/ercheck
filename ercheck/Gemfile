@@ -31,6 +31,11 @@ gem 'csv-mapper'
 
 gem 'validates_timeliness'
 
+gem 'carrierwave'
+
+gem 'roo'
+
+
 #gem "mongrel"
 
 # Gems used only for assets and not required

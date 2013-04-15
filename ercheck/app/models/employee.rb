@@ -4,6 +4,9 @@ class Employee < ActiveRecord::Base
     accepts_nested_attributes_for :employements, :allow_destroy => true
                                                  #:reject_if => lambda { |a| a[:text].blank? },
 
+    scope :active, where(:active => true)
+    scope :latest, order('created_at desc')
+
     has_many :employers, :through => :employements
 
     belongs_to :university
@@ -16,11 +19,10 @@ class Employee < ActiveRecord::Base
 
     attr_accessible  :employement_attributes, :employement_id, :date_of_birth, :name, :pancard, \
     :university_id, :board_id ,:status_id, :created_by, :approved_by, :is_published, :ssc_marksheet_code, \
-    :surname, :mother_name, :father_name, :string, :metric_passing_year, \
+    :surname, :mother_name, :father_name, :metric_passing_year, \
     :highest_qualification_id, :highest_qualification_passing_year, :mobile, :res_landline
 
-    validates_presence_of  :date_of_birth, :name, :pancard,:ssc_marksheet_code, \
-    :board_id
+    validates_presence_of  :date_of_birth, :name, :pancard,:ssc_marksheet_code,  :board_id
 
     validates :name, :length => { :in => 3..50, :message => "At least 3 characters expected in name" }
     validates :name, :format => { :with => /\A[a-zA-Z\s]+\z/,:message => "Only letters allowed" }
@@ -34,7 +36,7 @@ class Employee < ActiveRecord::Base
 
     validates :pancard, :length => { :is => 10}
     validates :pancard, :uniqueness => {:case_sensitive => false,:message => "Employee already exists with this PAN ! "}
-    validates :ssc_marksheet_code, :uniqueness => {:scope => :board_id ,:case_sensitive => false,:message => "Employee already exists with this 10th Seat number for given board ! "} , :allow_nil => true
+    validates :ssc_marksheet_code, :uniqueness => {:scope => :board_id ,:case_sensitive => false ,:message => "Employee already exists with this 10th Seat number for given board ! "} , :allow_nil => true
 
 =begin
     validate :ensure_approved_before_publish,
@@ -127,6 +129,63 @@ class Employee < ActiveRecord::Base
              where(' created_by =?', "#{current_user}")
       end
     end
+
+
+  def self.csv_header
+    "First Name,Last Name,Email,Phone,Mobile, Address, FAX, City".split(',')
+  end
+
+
+
+  def self.open_spreadsheet(file)
+    case File.extname(file.original_filename)
+      when '.csv' then Roo::Csv.new(file.path, nil, :ignore)
+      when '.xls' then Rooo::Excel.new(file.path, nil, :ignore)
+      when '.xlsx' then Roo::Excelx.new(file.path, nil, :ignore)
+      else raise "Unknown file type: #{file.original_filename}"
+    end
+  end
+
+
+=begin
+    ####$,Name, pancard, date_of_birth, university_name,  ssc_marksheet_code, surname, mother_name, father_name,
+    metric_passing_year, board_name, highest_qualification_name, highest_qualification_passing_year, mobile, res_landline
+=end
+
+  def self.import(file)
+
+    spreadsheet = open_spreadsheet(file)
+    header = spreadsheet.row(1)
+    (2..spreadsheet.last_row).each do |i|
+      row = Hash[[header, spreadsheet.row(i)].transpose]
+      employee = find_or_initialize_by_pancard(row[2])
+      university  = University.find_or_create_by_name(row[4])
+      board = Board.find_or_create_by_name(row[10])
+      highest_qualification = HighestQualification.find_or_create_by_name(row[11])
+      employee.attributes ={:name => row[1],
+                        :date_of_birth => row[3],
+                        :university_id => university.id,
+                        :ssc_marksheet_code => row[5],
+                        :surname => row[6],
+                        :mother_name => row[7],
+                        :father_name => row[8],
+                        :metric_passing_year => row[9],
+                        :board_id => board.id,
+                        :highest_qualification_id => highest_qualification.id,
+                        :highest_qualification_passing_year => row[12],
+                        :mobile => row[13],
+                        :res_landline => row[14]
+      }
+      employee.save!
+    end
+  end
+
+
+
+  def to_csv
+    [first_name, last_name, email, phone, mobile, address, fax, city]
+  end
+
 
 =begin
     def self.fetchcsv(input_csv) #'C:\\DATA\\univ.csv'

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @datafile.name %>
+</p>
+
+<p>
+  <b>Records:</b>
+  <%= @datafile.records %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @datafile.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_datafile_path(@datafile) %> |
+<%= link_to 'Back', datafiles_path %>
