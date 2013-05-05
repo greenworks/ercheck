@@ -1,4 +1,7 @@
 Ercheck::Application.routes.draw do
+  # You can have the root of your site routed with "root"
+  # just remember to delete public/index.html.
+   root :to => 'info#home'
 
   resources :functions
 
@@ -106,9 +109,6 @@ Ercheck::Application.routes.draw do
   #     resources :products
   #   end
 
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-   root :to => 'info#home'
 
   # See how all your routes lay out with "rake routes"
 
