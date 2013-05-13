@@ -26,6 +26,7 @@ class Ability
          can :manage, User do |user_rec|
              user_rec.id == user.id
          end
+         cannot :index, User
          cannot :manage, Employer
          cannot :manage, EmployeeImport
          cannot :index, Employee

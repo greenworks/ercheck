@@ -40,7 +40,7 @@
         <td class="data_actions">
           <a href="/admin/employees/<%= employee.id %>" class="member_link view_link">View</a>
 
-          <% if employee.status.nil? || employee.status.name == "Created" %>
+          <% if (employee.status.nil? || employee.status.name == "Created" || employee.status.name == "Rejected") && (current_user.role.name == "user") %>
             <a href="/admin/employees/<%= employee.id %>/edit" class="member_link edit_link">Edit</a>
           <% end %>
 

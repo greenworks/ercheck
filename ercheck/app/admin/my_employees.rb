@@ -7,6 +7,7 @@ ActiveAdmin.register_page "All Employees" do
 
   content do
     params[:status]="All"
+
     #render "/employees/employees"
     render "/employements/index"
 =begin
