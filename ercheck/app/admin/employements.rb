@@ -231,9 +231,11 @@ ActiveAdmin.register Employement do
 
           row :is_published
 
+=begin
           if current_user.role.name == "admin"
             action :edit
           end
+=end
     end
 
 

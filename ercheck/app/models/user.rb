@@ -24,4 +24,6 @@ class User < ActiveRecord::Base
       where(' id =?', "#{manager}")
     end
   end
+
+
 end

@@ -166,3 +166,5 @@ ercheck/.idea
 ercheck/log/*.log
 ercheck\.idea\*
 ercheck\log\*.log
+.idea
+.idea/*

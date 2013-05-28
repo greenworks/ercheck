@@ -1,7 +1,12 @@
 Ercheck::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'info#home'
+
+  ActiveAdmin.routes(self)
+
+  devise_for :users
+
+  root :to => 'info#home'
 
   resources :functions
 
@@ -13,9 +18,6 @@ Ercheck::Application.routes.draw do
 
   resources :enquiries
 
-  ActiveAdmin.routes(self)
-
-  devise_for :users
 
   resources :employements
 
@@ -60,7 +62,12 @@ Ercheck::Application.routes.draw do
     collection { post :import }
   end
 
-  devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end
+  devise_for :users do
+        get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+
+  get "admin/change_managers" "admin/users/change_managers"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

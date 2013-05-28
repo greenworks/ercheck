@@ -2,6 +2,12 @@ ActiveAdmin.register User do
 
   menu :parent => "Masters", :if => proc{ current_user.role.name=="admin" }
 
+  def remote_request(type, path, params={}, target_tag_id)
+    "$.#{type}('#{path}',
+             {#{params.collect { |p| "#{p[0]}: #{p[1]}" }.join(", ")}},
+             function(data) {$('##{target_tag_id}').html(data);}
+   );"
+  end
 
 =begin
     action_item :only => :show  do
@@ -53,13 +59,29 @@ ActiveAdmin.register User do
       if current_user.role.name=="admin"
           f.input :email
           f.input :employer
-          f.input :role
+=begin
+          f.input :employer, :input_html => {
+              :onchange => remote_request(:post, :change_managers, {:employer_id=>"$('#user_employer_id').val()"}, :manager)
+          }
+=end
           f.input :manager
-        end
+          f.input :role
+      end
       f.input :password
       f.input :password_confirmation
     end
     f.actions
   end
+
+
+  controller do
+    def change_managers
+      @managers = User.find_by_employer_id(params[:employer_id]).try(:manager)
+      render :text=>view_context.options_from_collection_for_select(@managers, :id, :manager_id)
+    end
+  end
+
+
+    #form :partial => "/devise/registrations/edit_user"
 
 end
