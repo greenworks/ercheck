@@ -25,5 +25,13 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.search_manager_by_employer_id(employer_id)
+    if employer_id
+      where(' role_id = 2 AND employer_id =?', "#{employer_id}")
+    else
+      where(' role_id = 9 ')
+    end
+  end
+
 
 end

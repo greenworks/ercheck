@@ -77,8 +77,7 @@ ActiveAdmin.register_page "Dashboard" do
    end
 
 
-   if current_user.role && current_user.role.name == "admin"
-
+   if current_user.role && (current_user.role.name == "admin" || curent_user.email == "user@widewindow.com" )
 
      panel "Employer wise summary"   do
        table_for Employer.all do
@@ -124,7 +123,6 @@ ActiveAdmin.register_page "Dashboard" do
          link_to "Import employees from CSV ", new_employee_import_path
        end
      end
-
 
    end
 

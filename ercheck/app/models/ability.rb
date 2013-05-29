@@ -14,19 +14,32 @@ class Ability
        elsif user.role.name == "manager"
          can :manage, Employee , :creator.in?(User.search_reporting_users(user).collect(&:id))
          can :manage, Employement , :creator.in?(User.search_reporting_users(user).collect(&:id))
-         can :manage, User do |user_rec|
+         can :update, User do |user_rec|
              user_rec.id == user.id
          end
+         can :read, User do |user_rec|
+           user_rec.id == user.id
+         end
+         cannot :destroy, User
          cannot :index, Employee
          cannot :manage, Employer
          cannot :manage, EmployeeImport
        elsif user.role.name == "user"
          can :manage, Employee , :creator.in?(User.search_reporting_users(user).collect(&:id))
          can :manage, Employement , :creator.in?(User.search_reporting_users(user).collect(&:id))
-         can :manage, User do |user_rec|
+         can :update, User do |user_rec|
              user_rec.id == user.id
          end
+         can :read, User do |user_rec|
+           user_rec.id == user.id
+         end
          cannot :index, User
+         cannot :destroy, User
+         cannot :manage, Employer
+         cannot :manage, EmployeeImport
+         cannot :index, Employee
+       else
+         can :create, User
          cannot :manage, Employer
          cannot :manage, EmployeeImport
          cannot :index, Employee

@@ -66,7 +66,7 @@ Ercheck::Application.routes.draw do
         get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  get "admin/change_managers" "admin/users/change_managers"
+  match "admin/users/:id/change_managers" => "admin/users#change_managers"
 
 
   # The priority is based upon order of creation:
