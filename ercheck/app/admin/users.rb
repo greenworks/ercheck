@@ -2,6 +2,8 @@ ActiveAdmin.register User do
 
   menu :parent => "Masters", :if => proc{ current_user.role.name=="admin" }
 
+  config.clear_action_items!
+
   def remote_request(type, path, params={}, target_tag_id)
     "$.#{type}('#{path}',
              {#{params.collect { |p| "#{p[0]}: #{p[1]}" }.join(", ")}},
@@ -51,6 +53,39 @@ ActiveAdmin.register User do
     end
   end
 
+
+  show do |user|
+    attributes_table do
+      row :id
+      row :name
+      row :email
+      row "Employer" do |user|
+        user.employer && user.employer.name
+      end
+      row "Role" do |user|
+        user.role && user.role.name
+      end
+      row "manager" do |user|
+        user.manager && user.manager.name
+      end
+    end
+=begin
+    if current_user.role.name=="admin"
+
+      Current Sign In At 	May 29, 2013 12:31
+      Last Sign In At 	May 29, 2013 12:29
+      Current Sign In Ip 	127.0.0.1
+      Last Sign In Ip 	127.0.0.1
+      Created At 	May 29, 2013 11:44
+      Updated At 	May 29, 2013 12:31
+      default_actions
+    else
+      actions :edit
+    end
+=end
+
+  end
+
   form do |f|
     puts "current_user.role.name -> #{current_user.role.name}"
 
@@ -58,30 +93,32 @@ ActiveAdmin.register User do
       f.input :name
       if current_user.role.name=="admin"
           f.input :email
-          f.input :employer
-=begin
           f.input :employer, :input_html => {
-              :onchange => remote_request(:post, :change_managers, {:employer_id=>"$('#user_employer_id').val()"}, :manager)
+              :onchange => remote_request(:post, :change_managers, {:employer_id=>"$('#user_employer_id').val()"}, :manager_id)
           }
-=end
-          f.input :manager
+          @employer = User.find(params[:id]).employer_id
+          f.input :manager, :label => "manager", :as => :select, :collection => User.search_manager_by_employer_id(@employer)
+          #f.input :manager
           f.input :role
       end
       f.input :password
       f.input :password_confirmation
     end
     f.actions
+
   end
 
 
   controller do
     def change_managers
-      @managers = User.find_by_employer_id(params[:employer_id]).try(:manager)
-      render :text=>view_context.options_from_collection_for_select(@managers, :id, :manager_id)
+     @managers = User.search_manager_by_employer_id(params[:employer_id])#.try(:users)
+
+     render :text=>view_context.options_from_collection_for_select(@managers, :id, :name)
+     #render :text=>view_context.collection_select("manager",nil, User.search_manager_by_employer_id(params[:employer_id]), :id, :name)
+     #collection_select  "board",nil, @boards, :id, :name, {:prompt => true}
+
     end
   end
 
-
     #form :partial => "/devise/registrations/edit_user"
-
 end
