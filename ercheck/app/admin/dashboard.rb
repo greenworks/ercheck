@@ -77,7 +77,7 @@ ActiveAdmin.register_page "Dashboard" do
    end
 
 
-   if current_user.role && (current_user.role.name == "admin" || curent_user.email == "user@widewindow.com" )
+   if current_user.role && (current_user.role.name == "admin" || current_user.email == "user@widewindow.com" )
 
      panel "Employer wise summary"   do
        table_for Employer.all do
