@@ -4,6 +4,10 @@ ActiveAdmin.register User do
 
   config.clear_action_items!
 
+  action_item :only => :show do
+    link_to('Edit User', edit_admin_user_path(current_user)) if  (current_user.role.name=="admin")
+  end
+
   def remote_request(type, path, params={}, target_tag_id)
     "$.#{type}('#{path}',
              {#{params.collect { |p| "#{p[0]}: #{p[1]}" }.join(", ")}},
