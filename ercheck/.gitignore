@@ -162,9 +162,5 @@ pip-log.txt
 # Mac crap
 .DS_Store
 
-ercheck/.idea
-ercheck/log/*.log
-ercheck\.idea\*
-ercheck\log\*.log
 .idea
-.idea/*
+log

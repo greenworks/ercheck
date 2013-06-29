@@ -8,6 +8,11 @@ ActiveAdmin.register User do
     link_to('Edit User', edit_admin_user_path(current_user)) if  (current_user.role.name=="admin")
   end
 
+  action_item :only => :index do
+      link_to('New User', new_admin_user_path ) if (current_user.role.name=="admin")
+  end
+
+
   def remote_request(type, path, params={}, target_tag_id)
     "$.#{type}('#{path}',
              {#{params.collect { |p| "#{p[0]}: #{p[1]}" }.join(", ")}},
@@ -100,8 +105,12 @@ ActiveAdmin.register User do
           f.input :employer, :input_html => {
               :onchange => remote_request(:post, :change_managers, {:employer_id=>"$('#user_employer_id').val()"}, :manager_id)
           }
-          @employer = User.find(params[:id]).employer_id
-          f.input :manager, :label => "manager", :as => :select, :collection => User.search_manager_by_employer_id(@employer)
+          if (params[:id])
+            @employer = User.find(params[:id]).employer_id
+            f.input :manager, :label => "manager", :as => :select, :collection => User.search_manager_by_employer_id(@employer)
+          else
+            f.input :manager, :label => "manager", :as => :select, :collection => User.all
+          end
           #f.input :manager
           f.input :role
       end
