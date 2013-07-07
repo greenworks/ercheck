@@ -88,11 +88,9 @@ ActiveAdmin.register Employement do
 
     column "Rating", :rating
 
-=begin
     if current_user.role.name == "admin"
       default_actions
     end
-=end
   end
 
   show do |employement|

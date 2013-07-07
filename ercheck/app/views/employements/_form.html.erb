@@ -70,7 +70,7 @@
 
     <% end %>
     <% if  current_user.role.name == "admin" %>
-        <%= f.inputs :approver, :status_id, :is_published %>
+        <%= f.inputs :approver, :status, :is_published %>
     <% end %>
     <%= f.actions %>
 

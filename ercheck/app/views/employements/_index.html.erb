@@ -22,7 +22,7 @@
         <th class="data_actions">Data Actions</th>
         <th class="status">Status</th>
         <th class="business_actions">Business Actions</th>
-        <% if  current_user.role.name == "manager"  %>
+        <% if (current_user.role.name == "manager" || current_user.role.name == "admin") %>
             <th class="created_by">Created By</th>
             <th class="is_published">Published?</th>
         <% end %>
@@ -50,7 +50,7 @@
              <% if (employement.status.nil? || employement.status.name == "Created" || employement.status.name == "Rejected" ) && current_user.role.name != "manager" %>
                  <a href="/admin/employements/<%= employement.id %>/submit" class="member_link publish_link">Submit</a>
              <% end %>
-             <% if current_user.role.name == "manager" && (employement.status != nil && employement.status.name == "Submitted") %>
+             <% if (current_user.role.name == "manager" || current_user.role.name == "admin" ) && (employement.status != nil && employement.status.name == "Submitted") %>
                  <a href="/admin/employements/<%= employement.id %>/approve" class="member_link publish_link">Approve</a>
                  <a href="/admin/employements/<%= employement.id %>/reject" class="member_link publish_link">Reject</a>
             <% end %>
