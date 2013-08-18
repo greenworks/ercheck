@@ -153,6 +153,10 @@ ActiveAdmin.register Employee do
         end
         #default actions of edit and delete are with admin only
     end
+
+    if current_user.role.name == "admin"
+      default_actions
+    end
   end
 
   show do |employee|
