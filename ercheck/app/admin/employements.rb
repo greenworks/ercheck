@@ -152,7 +152,9 @@ ActiveAdmin.register Employement do
           end
           row :other_termination_discharge_reason
 
-          row :regret_flag
+          row "regret_flag" do |employement|
+            employement.rehire_flag && employement.rehire_flag.name
+          end
 
           row "rehire_flag" do |employement|
             employement.rehire_flag && employement.rehire_flag.name
