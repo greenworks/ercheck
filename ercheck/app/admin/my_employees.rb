@@ -16,7 +16,11 @@ ActiveAdmin.register_page "All Employees" do
   end
 
   action_item do
-    link_to "New Employee", "/admin/employees/new"
+    if (current_user.role.name=="user")
+      link_to "New Employee", "/admin/employees/new"
+    else
+      link_to "Dashboard", "/admin"
+    end
   end
 
 =begin
